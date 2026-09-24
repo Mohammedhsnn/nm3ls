@@ -28,7 +28,7 @@
   function itemsHTML() {
     return '<div class="cart-items">' + items().map((i, idx) => `
       <div class="cart-item" data-line="${idx + 1}">
-        <a href="${i.url}" tabindex="-1" aria-hidden="true">${i.image ? `<img src="${img(i.image, 200)}" alt="" loading="lazy">` : ''}</a>
+        <a href="${i.url}" tabindex="-1" aria-hidden="true">${i.image ? `<img src="${img(i.image, 200)}" alt="">` : ''}</a>
         <div>
           <a class="cart-item__title" href="${i.url}">${esc(i.product_title)}</a>
           <p class="cart-item__meta">${i.has_only_default ? '' : esc(i.variant_title)}${i.one ? ' · 1 of 1' : ''}</p>

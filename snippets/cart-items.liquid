@@ -10,7 +10,7 @@
     <div class="cart-item" data-line="{{ forloop.index }}">
       <a href="{{ item.url }}" tabindex="-1" aria-hidden="true">
         {%- if item.image -%}
-          {{ item.image | image_url: width: 200 | image_tag: alt: '', loading: 'lazy' }}
+          {{ item.image | image_url: width: 200 | image_tag: alt: '' }}
         {%- endif -%}
       </a>
       <div>
