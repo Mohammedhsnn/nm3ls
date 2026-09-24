@@ -9,7 +9,8 @@
     "check": "shopify theme check",
     "push": "shopify theme push --unpublished --store exayxs-wj.myshopify.com",
     "pull": "shopify theme pull --store exayxs-wj.myshopify.com",
-    "build": "node dev/build.mjs"
+    "build": "node dev/build.mjs",
+    "deploy": "node dev/build.mjs && cd _site && git init -q -b gh-pages && git add -A && git commit -qm \"Preview build\" && git push -f https://github.com/Mohammedhsnn/nm3ls.git gh-pages"
   },
   "devDependencies": {
     "@shopify/cli": "^4.8.2",

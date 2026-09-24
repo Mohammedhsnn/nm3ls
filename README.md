@@ -23,10 +23,10 @@ logs to the terminal.
 ### Shareable preview (GitHub Pages)
 
 ```bash
-npm run build
+npm run deploy
 ```
 
-Writes a static copy of the site to `_site/` for the `gh-pages` branch. A small script
+Live at https://mohammedhsnn.github.io/nm3ls/. `npm run build` alone writes a static copy of the site to `_site/`; `deploy` also force-pushes it to the `gh-pages` branch. A small script
 (`dev/static-shim.js`) stands in for the Shopify cart, so the bag works as a demo in the
 visitor's browser; checkout, signup and accounts show a "demo preview" message.
 
