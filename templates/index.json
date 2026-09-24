@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Back to school drop — live now",
+        "wordmark": "NML",
+        "script": "club",
+        "heading": "Reworked denim, club tees & one-of-one thrift finds.",
+        "text": "<p>Every 1/1 piece is picked, cut and finished by hand. There is one of each — when it sells, it's gone for good.</p>",
+        "button_label": "Shop the drop",
+        "button_link": "shopify://collections/back-to-school-collection",
+        "button2_label": "Dig the 1/1 crate",
+        "button2_link": "shopify://collections/crimson-slouch-beanie",
+        "image": "shopify://shop_images/0B76B7C8-C261-42FC-B3A1-02FFDA653D9B.jpg",
+        "caption_left": "Blur Club Tee",
+        "caption_right": "Side A",
+        "show_vinyl": true,
+        "vinyl_label": "nml",
+        "sticker_big": "1/1",
+        "sticker_small": "weekly\ndrops"
+      }
+    },
+    "new_in": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "New in",
+        "script": "fresh press",
+        "text": "The back to school collection. Tees run S–2XL.",
+        "collection": "back-to-school-collection",
+        "limit": 8,
+        "columns": 4,
+        "show_view_all": true
+      }
+    },
+    "crate": {
+      "type": "one-of-one-crate",
+      "blocks": {
+        "denim": { "type": "filter", "settings": { "label": "Denim", "keywords": "jort, short, jean, denim" } },
+        "zips": { "type": "filter", "settings": { "label": "Zip ups", "keywords": "zip, hoodie, jacket" } },
+        "shoes": { "type": "filter", "settings": { "label": "Footwear", "keywords": "vans, shoe, sneaker" } }
+      },
+      "block_order": ["denim", "zips", "shoes"],
+      "settings": {
+        "heading": "The 1/1 crate",
+        "script": "one each",
+        "text": "Hand-picked and reworked. One size, one piece — sold stays on the rack so you can see what you missed.",
+        "collection": "crimson-slouch-beanie",
+        "limit": 24
+      }
+    },
+    "weekly": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Weekly drops",
+        "script": "gone fast",
+        "text": "Last week's 1/1 customs. Most of them lasted less than a day.",
+        "collection": "weekly-1-1-drops",
+        "limit": 4,
+        "columns": 4,
+        "show_view_all": true
+      }
+    },
+    "records": {
+      "type": "feature-product",
+      "blocks": {
+        "cat": { "type": "spec", "settings": { "label": "Cat. no.", "value": "NML-REC-01" } },
+        "fit": { "type": "spec", "settings": { "label": "Fit", "value": "Oversized" } },
+        "care": { "type": "spec", "settings": { "label": "Care", "value": "Wash inside out, low" } }
+      },
+      "block_order": ["cat", "fit", "care"],
+      "settings": {
+        "product": "records-tee",
+        "heading": "NML Club Records",
+        "subheading": "House label",
+        "text": "<p>The club's in-house print. Oversized fit, washed-out black, the record logo cracked across the chest like it's been played a thousand times.</p>",
+        "vinyl_label": "records",
+        "button_label": "View the tee"
+      }
+    },
+    "club": {
+      "type": "club-signup",
+      "settings": {
+        "eyebrow": "Members get the drop first",
+        "heading": "Join the club",
+        "text": "<p>Weekly 1/1 drops go live without warning. Members hear about them first, with a preview of every piece before it hits the crate.</p>",
+        "button_label": "Get my member card",
+        "success": "You're in. Watch your inbox for the next drop.",
+        "tier": "Crate digger"
+      }
+    }
+  },
+  "order": ["hero", "new_in", "crate", "weekly", "records", "club"]
+}

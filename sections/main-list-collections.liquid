@@ -1,0 +1,32 @@
+<section class="page-width">
+  <div class="page-head"><h1>{{ section.settings.heading | escape }}</h1></div>
+  <div class="grid collection-list" style="--cols: 3; padding-bottom: clamp(56px, 7vw, 104px)">
+    {%- for col in collections -%}
+      {%- if col.products_count > 0 and col.handle != 'frontpage' -%}
+        <a class="card" href="{{ col.url }}">
+          <div class="card__media">
+            {%- assign img = col.featured_image | default: col.products.first.featured_media -%}
+            {%- if img -%}
+              {{ img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 1024px) 33vw, 50vw', alt: col.title }}
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'placeholder' }}
+            {%- endif -%}
+          </div>
+          <div class="card__info">
+            <h2 class="card__title">{{ col.title | escape }}</h2>
+            <span class="price-tag">{{ col.products_count }}</span>
+          </div>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Collections" }
+  ]
+}
+{% endschema %}

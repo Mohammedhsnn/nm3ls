@@ -1,0 +1,20 @@
+<section class="page-width">
+  <div class="page-head"><h1>{{ blog.title | escape }}</h1></div>
+  {%- paginate blog.articles by 9 -%}
+    <div class="article-list">
+      {%- for article in blog.articles -%}
+        <a class="article-card" href="{{ article.url }}">
+          {%- if article.image -%}{{ article.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: article.title }}{%- endif -%}
+          <span class="eyebrow">{{ article.published_at | date: '%b %d, %Y' }}</span>
+          <h2>{{ article.title | escape }}</h2>
+        </a>
+      {%- else -%}
+        <p class="empty-state">No stories yet.</p>
+      {%- endfor -%}
+    </div>
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{ "name": "Blog", "settings": [] }
+{% endschema %}

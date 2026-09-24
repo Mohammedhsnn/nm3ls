@@ -1,0 +1,20 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "shop": { "type": "menu", "settings": { "heading": "Shop", "menu": "main-menu" } },
+        "help": { "type": "menu", "settings": { "heading": "Help", "menu": "footer" } },
+        "social": { "type": "social", "settings": { "heading": "Follow" } }
+      },
+      "block_order": ["shop", "help", "social"],
+      "settings": {
+        "about": "Reworked denim, club tees and one-of-one thrift finds. Picked, cut and finished by hand.",
+        "giant": "NOMORELS"
+      }
+    }
+  },
+  "order": ["footer"]
+}

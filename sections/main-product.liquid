@@ -1,0 +1,133 @@
+{%- liquid
+  assign s = section.settings
+  assign current = product.selected_or_first_available_variant
+  capture is_one
+    render 'one-of-one', product: product
+  endcapture
+  assign is_one = is_one | strip
+-%}
+<section class="page-width" data-product-section>
+  <div class="product">
+    <div class="product__gallery">
+      {%- for media in product.media -%}
+        {%- if media.media_type == 'image' -%}
+          {%- liquid
+            assign load = 'lazy'
+            if forloop.first
+              assign load = 'eager'
+            endif
+          -%}
+          <figure data-media-id="{{ media.id }}">
+            {{ media | image_url: width: 1400 | image_tag:
+              loading: load,
+              widths: '540, 720, 960, 1200, 1400',
+              sizes: '(min-width: 860px) 55vw, 100vw',
+              alt: media.alt | default: product.title
+            }}
+          </figure>
+        {%- endif -%}
+      {%- else -%}
+        <figure>{{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder' }}</figure>
+      {%- endfor -%}
+    </div>
+
+    <div class="product__info">
+      {%- if product.type != blank -%}<p class="eyebrow">{{ product.type | escape }}</p>{%- endif -%}
+      <h1 class="product__title">{{ product.title | escape }}</h1>
+      <div class="product__price" data-product-price>
+        {{ current.price | money }}
+        {%- if current.compare_at_price > current.price %}<s>{{ current.compare_at_price | money }}</s>{% endif -%}
+      </div>
+
+      {%- if product.available == false -%}
+        <span class="product__note product__note--sold">{% if is_one == 'true' %}Sold — this piece found its home{% else %}Sold out{% endif %}</span>
+      {%- elsif is_one == 'true' -%}
+        <span class="product__note">Only one exists · final sale</span>
+      {%- endif -%}
+
+      {%- form 'product', product, id: 'ProductForm', data-product-form: '' -%}
+        <input type="hidden" name="id" value="{{ current.id }}" data-variant-id>
+
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <fieldset class="option" style="margin-bottom:18px">
+              <legend>{{ option.name | escape }}</legend>
+              <div class="option__values">
+                {%- for value in option.values -%}
+                  {%- liquid
+                    assign avail = false
+                    for v in product.variants
+                      if v.options[option.position0] == value and v.available
+                        assign avail = true
+                        break
+                      endif
+                    endfor
+                  -%}
+                  <input type="radio" id="Opt-{{ option.position }}-{{ forloop.index }}" name="option{{ option.position }}" value="{{ value | escape }}"
+                    {% if option.selected_value == value %}checked{% endif %} data-option="{{ option.position0 }}">
+                  <label for="Opt-{{ option.position }}-{{ forloop.index }}"{% unless avail %} class="is-unavailable"{% endunless %}>{{ value | escape }}</label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        {%- if is_one != 'true' and s.show_quantity -%}
+          <div style="margin-bottom:18px">
+            <p class="eyebrow" style="margin-bottom:10px">Quantity</p>
+            <div class="qty">
+              <button type="button" data-step="-1" aria-label="Decrease quantity">−</button>
+              <input type="number" name="quantity" value="1" min="1" aria-label="Quantity" data-quantity>
+              <button type="button" data-step="1" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <button type="submit" class="btn btn--full" data-add-button {% unless current.available %}disabled{% endunless %}>
+          {%- if current.available -%}Add to bag{%- else -%}Sold out{%- endif -%}
+        </button>
+        <p class="form-message form-message--error" data-form-error hidden></p>
+      {%- endform -%}
+
+      {%- if settings.shipping_note != blank -%}<p class="product__ship">{{ settings.shipping_note | escape }}</p>{%- endif -%}
+
+      {%- if product.description != blank -%}
+        <div class="product__desc rte">{{ product.description }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <script type="application/json" data-product-json>
+    {{ product.variants | json }}
+  </script>
+</section>
+
+{%- if s.show_related -%}
+  {%- assign rel = product.collections.first -%}
+  {%- if rel != blank and rel.products_count > 1 -%}
+    <section class="section" style="padding-top:0">
+      <div class="page-width">
+        <div class="section-head"><h2>More from<em>{{ rel.title | escape }}</em></h2></div>
+        <div class="grid" style="--cols: 4">
+          {%- assign shown = 0 -%}
+          {%- for p in rel.products -%}
+            {%- if p.id != product.id and shown < 4 -%}
+              {% render 'product-card', product: p %}
+              {%- assign shown = shown | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "checkbox", "id": "show_quantity", "label": "Show quantity picker", "info": "Always hidden on 1 of 1 pieces", "default": true },
+    { "type": "checkbox", "id": "show_related", "label": "Show more from the same collection", "default": true }
+  ]
+}
+{% endschema %}

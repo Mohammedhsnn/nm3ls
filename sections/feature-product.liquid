@@ -1,0 +1,70 @@
+{%- liquid
+  assign s = section.settings
+  assign p = s.product
+  assign img = s.image | default: p.featured_media
+-%}
+<section class="section feature" {{ section.shopify_attributes }}>
+  <div class="page-width feature__inner">
+    <div>
+      <h2>{{ s.heading | escape }}{% if s.subheading != blank %}<small>{{ s.subheading | escape }}</small>{% endif %}</h2>
+      {%- if s.text != blank -%}<div class="feature__text rte">{{ s.text }}</div>{%- endif -%}
+      <ul class="specs">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}><span>{{ block.settings.label | escape }}</span><span>{{ block.settings.value | escape }}</span></li>
+        {%- endfor -%}
+        {%- if p != blank -%}
+          <li><span>Price</span><span>{{ p.price | money }}{% unless p.available %} · Sold out{% endunless %}</span></li>
+        {%- endif -%}
+      </ul>
+      {%- if p != blank and s.button_label != blank -%}
+        <a class="btn" href="{{ p.url }}">{{ s.button_label | escape }}</a>
+      {%- endif -%}
+    </div>
+    <div class="feature__stage">
+      <div class="vinyl" aria-hidden="true"><div class="vinyl__label"><span>{{ s.vinyl_label | escape }}</span></div></div>
+      <div class="feature__jacket">
+        {%- if img != blank -%}
+          {{ img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 860px) 360px, 70vw', alt: p.title }}
+        {%- else -%}
+          {{ 'product-apparel-4' | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature product",
+  "class": "section-feature",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "NML Club Records" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "House label" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>The club's in-house print. Oversized fit, washed-out black, the record logo cracked across the chest like it's been played a thousand times.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Defaults to the product image" },
+    { "type": "text", "id": "vinyl_label", "label": "Record label text", "default": "records" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "View the tee" }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec line",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Fit" },
+        { "type": "text", "id": "value", "label": "Value", "default": "Oversized" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature product",
+      "blocks": [
+        { "type": "spec", "settings": { "label": "Cat. no.", "value": "NML-REC-01" } },
+        { "type": "spec", "settings": { "label": "Fit", "value": "Oversized" } },
+        { "type": "spec", "settings": { "label": "Care", "value": "Wash inside out, low" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

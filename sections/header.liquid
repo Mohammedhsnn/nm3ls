@@ -1,0 +1,56 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+-%}
+<header class="site-header" data-header>
+  <div class="page-width site-header__inner">
+    <div>
+      <nav class="nav" aria-label="Main">
+        {%- for link in menu.links -%}
+          <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+        {%- endfor -%}
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="MobileMenu" data-menu-toggle>Menu</button>
+    </div>
+
+    <a class="logo" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: alt: shop.name, loading: 'eager', widths: '200, 400' }}
+      {%- else -%}
+        <span class="logo__mark">{{ section.settings.wordmark | escape }}</span>
+        {%- if section.settings.script != blank -%}<span class="logo__script">{{ section.settings.script | escape }}</span>{%- endif -%}
+      {%- endif -%}
+    </a>
+
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" class="hide-mobile">Search</a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="hide-mobile">Account</a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="cart-link" data-cart-open>
+        Bag <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="MobileMenu" aria-label="Mobile" hidden>
+    {%- for link in menu.links -%}
+      <a href="{{ link.url }}">{{ link.title | escape }}</a>
+    {%- endfor -%}
+    <a href="{{ routes.search_url }}">Search</a>
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">Account</a>
+    {%- endif -%}
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to use the text wordmark" },
+    { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "NML" },
+    { "type": "text", "id": "script", "label": "Script accent", "default": "club" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

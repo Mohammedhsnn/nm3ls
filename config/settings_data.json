@@ -1,0 +1,23 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_background": "#F7F6F3",
+      "color_surface": "#FFFFFF",
+      "color_text": "#151311",
+      "color_muted": "#6E675E",
+      "color_border": "#E3DFD7",
+      "color_accent": "#B42318",
+      "color_accent_text": "#FFFFFF",
+      "color_dark": "#151311",
+      "color_dark_text": "#F7F6F3",
+      "color_denim": "#22375A",
+      "page_width": 1440,
+      "radius": 0,
+      "cart_type": "drawer",
+      "one_of_one_tag": "1of1",
+      "shipping_note": "Ships within 2–3 business days",
+      "social_instagram": "https://www.instagram.com/nml.club/"
+    }
+  }
+}

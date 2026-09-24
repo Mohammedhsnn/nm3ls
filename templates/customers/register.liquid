@@ -1,0 +1,12 @@
+<div class="page-width narrow">
+  <h1>Create account</h1>
+  {%- form 'create_customer' -%}
+    {{ form.errors | default_errors }}
+    <div class="field"><label for="RegFirst">First name</label><input id="RegFirst" type="text" name="customer[first_name]" autocomplete="given-name"></div>
+    <div class="field" style="margin-top:12px"><label for="RegLast">Last name</label><input id="RegLast" type="text" name="customer[last_name]" autocomplete="family-name"></div>
+    <div class="field" style="margin-top:12px"><label for="RegEmail">Email</label><input id="RegEmail" type="email" name="customer[email]" autocomplete="email" required></div>
+    <div class="field" style="margin-top:12px"><label for="RegPassword">Password</label><input id="RegPassword" type="password" name="customer[password]" autocomplete="new-password" required></div>
+    <button class="btn btn--full" type="submit" style="margin-top:16px">Create account</button>
+  {%- endform -%}
+  <a class="link" href="{{ routes.account_login_url }}">Already a member? Log in</a>
+</div>

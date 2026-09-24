@@ -1,0 +1,69 @@
+{%- comment -%}
+  Product card.
+  Accepts: product (required), show_catno (bool), catno (number), loading ('lazy'|'eager')
+{%- endcomment -%}
+{%- liquid
+  capture is_one
+    render 'one-of-one', product: product
+  endcapture
+  assign is_one = is_one | strip
+  assign sold = true
+  if product.available
+    assign sold = false
+  endif
+  assign second = product.media[1]
+  assign tag_list = product.tags | join: ' '
+  assign keywords = product.title | append: ' ' | append: product.type | append: ' ' | append: tag_list | downcase
+  assign img_loading = loading | default: 'lazy'
+  assign sizes = ''
+  for option in product.options_with_values
+    assign opt_name = option.name | downcase
+    if opt_name == 'size' or opt_name == 'maat' or product.options_with_values.size == 1
+      assign sizes = option.values | join: ' · '
+    endif
+  endfor
+  if sizes == 'Default Title'
+    assign sizes = ''
+  endif
+-%}
+<a
+  href="{{ product.url }}"
+  class="card{% if sold %} card--sold{% endif %}"
+  data-card
+  data-keywords="{{ keywords | escape }}"
+  data-available="{{ product.available }}"
+>
+  <div class="card__media">
+    {%- if is_one == 'true' -%}<span class="badge badge--one">1 of 1</span>{%- endif -%}
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 900 | image_tag:
+        loading: img_loading,
+        widths: '360, 540, 720, 900',
+        sizes: '(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw',
+        alt: product.featured_media.alt | default: product.title
+      }}
+      {%- if second and second.media_type == 'image' -%}
+        {{ second | image_url: width: 900 | image_tag:
+          loading: 'lazy', class: 'card__alt', alt: '',
+          widths: '360, 540, 720, 900',
+          sizes: '(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw'
+        }}
+      {%- endif -%}
+    {%- else -%}
+      {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder' }}
+    {%- endif -%}
+    {%- if sold -%}<span class="stamp">SOLD</span>{%- endif -%}
+  </div>
+  {%- if show_catno -%}
+    <span class="card__catno">NML-{{ catno | prepend: '000' | slice: -3, 3 }}</span>
+  {%- endif -%}
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">{{ product.title | escape }}</h3>
+      {%- if sizes != blank -%}
+        <p class="card__sizes">{% if is_one == 'true' %}Size {% endif %}{{ sizes | escape }}</p>
+      {%- endif -%}
+    </div>
+    {% render 'price', product: product %}
+  </div>
+</a>

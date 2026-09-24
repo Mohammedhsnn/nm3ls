@@ -1,0 +1,22 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "m1": { "type": "message", "settings": { "text": "Weekly 1/1 drops" } },
+        "m2": { "type": "message", "settings": { "text": "Ships in 2–3 business days" } },
+        "m3": { "type": "message", "settings": { "text": "Hand-picked & reworked" } },
+        "m4": { "type": "message", "settings": { "text": "@nml.club" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4"],
+      "settings": { "scroll": true }
+    },
+    "header": {
+      "type": "header",
+      "settings": { "wordmark": "NML", "script": "club", "menu": "main-menu" }
+    }
+  },
+  "order": ["announcement", "header"]
+}

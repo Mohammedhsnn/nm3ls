@@ -1,0 +1,31 @@
+<div class="page-width">
+  <div class="page-head">
+    <p class="eyebrow">Member</p>
+    <h1>{{ customer.first_name | default: 'Your account' | escape }}</h1>
+    <p style="margin-top:12px"><a class="link" href="{{ routes.account_logout_url }}">Log out</a> · <a class="link" href="{{ routes.account_addresses_url }}">Addresses ({{ customer.addresses_count }})</a></p>
+  </div>
+  <h2 class="eyebrow" style="margin-bottom:12px">Orders</h2>
+  {%- paginate customer.orders by 20 -%}
+    {%- if customer.orders.size > 0 -%}
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Order</th><th>Date</th><th>Payment</th><th>Fulfillment</th><th>Total</th></tr></thead>
+          <tbody>
+            {%- for order in customer.orders -%}
+              <tr>
+                <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+                <td>{{ order.created_at | date: '%b %d, %Y' }}</td>
+                <td>{{ order.financial_status_label }}</td>
+                <td>{{ order.fulfillment_status_label }}</td>
+                <td>{{ order.total_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    {%- else -%}
+      <p style="color:var(--muted)">No orders yet. <a href="{{ routes.all_products_collection_url }}">Go dig through the crate.</a></p>
+    {%- endif -%}
+  {%- endpaginate -%}
+  <div style="height: 96px"></div>
+</div>

@@ -1,0 +1,41 @@
+{%- comment -%} Line items shared by the cart drawer and cart page. {%- endcomment -%}
+<div class="cart-items">
+  {%- for item in cart.items -%}
+    {%- liquid
+      capture is_one
+        render 'one-of-one', product: item.product
+      endcapture
+      assign is_one = is_one | strip
+    -%}
+    <div class="cart-item" data-line="{{ forloop.index }}">
+      <a href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+        {%- if item.image -%}
+          {{ item.image | image_url: width: 200 | image_tag: alt: '', loading: 'lazy' }}
+        {%- endif -%}
+      </a>
+      <div>
+        <a class="cart-item__title" href="{{ item.url }}">{{ item.product.title | escape }}</a>
+        <p class="cart-item__meta">
+          {%- unless item.product.has_only_default_variant -%}{{ item.variant.title | escape }}{%- endunless -%}
+          {%- if is_one == 'true' %} · 1 of 1{% endif -%}
+        </p>
+        <div class="cart-item__actions">
+          {%- if is_one == 'true' -%}
+            <span class="cart-item__meta">Qty 1</span>
+          {%- else -%}
+            <div class="qty">
+              <button type="button" data-qty-change="{{ item.quantity | minus: 1 }}" aria-label="Decrease quantity of {{ item.product.title | escape }}">−</button>
+              <input type="number" value="{{ item.quantity }}" min="0" data-qty-input aria-label="Quantity of {{ item.product.title | escape }}">
+              <button type="button" data-qty-change="{{ item.quantity | plus: 1 }}" aria-label="Increase quantity of {{ item.product.title | escape }}">+</button>
+            </div>
+          {%- endif -%}
+          <button type="button" class="cart-item__remove" data-qty-change="0">Remove</button>
+        </div>
+      </div>
+      <div class="cart-item__price">
+        {{ item.final_line_price | money }}
+        {%- if item.original_line_price > item.final_line_price -%}<br><s class="cart-item__meta">{{ item.original_line_price | money }}</s>{%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>

@@ -1,0 +1,57 @@
+{%- liquid
+  assign s = section.settings
+-%}
+<section class="section club" {{ section.shopify_attributes }}>
+  <div class="page-width club__inner">
+    <div>
+      {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow | escape }}</p>{%- endif -%}
+      <h2>{{ s.heading | escape }}</h2>
+      {%- if s.text != blank -%}<div class="club__text rte">{{ s.text }}</div>{%- endif -%}
+
+      {%- form 'customer', id: 'ClubForm', class: 'club-form', data-club-form: '' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter,nml-club">
+        <div class="field">
+          <label for="ClubName-{{ section.id }}">Name on your card</label>
+          <input id="ClubName-{{ section.id }}" type="text" name="contact[first_name]" autocomplete="given-name" maxlength="22" placeholder="Jordan" data-club-name>
+        </div>
+        <div class="field">
+          <label for="ClubEmail-{{ section.id }}">Email</label>
+          <input id="ClubEmail-{{ section.id }}" type="email" name="contact[email]" autocomplete="email" required placeholder="you@email.com" data-club-email
+            {% if form.errors %}aria-invalid="true" aria-describedby="ClubMsg-{{ section.id }}"{% endif %}>
+        </div>
+        <button class="btn" type="submit">{{ s.button_label | escape }}</button>
+        {%- if form.posted_successfully? -%}
+          <p class="form-message form-message--success" id="ClubMsg-{{ section.id }}" role="status">{{ s.success | escape }}</p>
+        {%- elsif form.errors -%}
+          <p class="form-message form-message--error" id="ClubMsg-{{ section.id }}" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+
+    <div class="mcard" data-member-card aria-hidden="true">
+      <div class="mcard__row"><span class="mcard__brand">NML<i>club</i></span><span class="mcard__kind">Member</span></div>
+      <div class="mcard__who" data-card-name>Your name here</div>
+      <div class="mcard__nums">
+        <span>No.<b data-card-no>0000</b></span>
+        <span>Since<b>{{ 'now' | date: '%Y' }}</b></span>
+        <span>Tier<b>{{ s.tier | escape }}</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Club signup",
+  "class": "section-club",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Members get the drop first" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the club" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Weekly 1/1 drops go live without warning. Members hear about them first, with a preview of every piece before it hits the crate.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Get my member card" },
+    { "type": "text", "id": "success", "label": "Success message", "default": "You're in. Watch your inbox for the next drop." },
+    { "type": "text", "id": "tier", "label": "Card tier", "default": "Crate digger" }
+  ],
+  "presets": [{ "name": "Club signup" }]
+}
+{% endschema %}

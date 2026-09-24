@@ -1,0 +1,15 @@
+{
+  "name": "nml-club-theme",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NML Club Shopify theme for nm3ls.com",
+  "scripts": {
+    "dev": "shopify theme dev --store exayxs-wj.myshopify.com",
+    "check": "shopify theme check",
+    "push": "shopify theme push --unpublished --store exayxs-wj.myshopify.com",
+    "pull": "shopify theme pull --store exayxs-wj.myshopify.com"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^4.8.2"
+  }
+}

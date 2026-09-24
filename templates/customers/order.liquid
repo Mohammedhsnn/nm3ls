@@ -1,0 +1,32 @@
+<div class="page-width">
+  <div class="page-head">
+    <p><a class="link" href="{{ routes.account_url }}">← Account</a></p>
+    <h1>Order {{ order.name }}</h1>
+    <p class="eyebrow" style="margin-top:12px">{{ order.created_at | date: '%b %d, %Y %I:%M%p' }}{% if order.cancelled %} · Cancelled{% endif %}</p>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead>
+      <tbody>
+        {%- for item in order.line_items -%}
+          <tr>
+            <td>{{ item.title | escape }}{% if item.fulfillment %}<br><span class="eyebrow">Shipped {{ item.fulfillment.created_at | date: '%b %d' }}</span>{% endif %}</td>
+            <td>{{ item.final_price | money }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+      <tfoot>
+        <tr><td colspan="3">Subtotal</td><td>{{ order.line_items_subtotal_price | money }}</td></tr>
+        {%- for line in order.shipping_methods -%}<tr><td colspan="3">Shipping ({{ line.title | escape }})</td><td>{{ line.price | money }}</td></tr>{%- endfor -%}
+        {%- for tax in order.tax_lines -%}<tr><td colspan="3">{{ tax.title }}</td><td>{{ tax.price | money }}</td></tr>{%- endfor -%}
+        <tr><td colspan="3"><b>Total</b></td><td><b>{{ order.total_price | money_with_currency }}</b></td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="grid" style="--cols: 2; margin-block: 40px 96px">
+    <div><h2 class="eyebrow">Billing address</h2><p style="margin-top:8px">{{ order.billing_address | format_address }}</p></div>
+    <div><h2 class="eyebrow">Shipping address</h2><p style="margin-top:8px">{{ order.shipping_address | format_address }}</p></div>
+  </div>
+</div>

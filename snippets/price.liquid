@@ -1,0 +1,18 @@
+{%- comment -%}
+  Renders a price with an optional compare-at price.
+  Accepts: product (required), variant (optional), class (optional)
+{%- endcomment -%}
+{%- liquid
+  assign target = variant | default: product.selected_or_first_available_variant
+  assign price = target.price | default: product.price
+  assign compare = target.compare_at_price
+  assign on_sale = false
+  if compare > price
+    assign on_sale = true
+  endif
+-%}
+<span class="price-tag{% if on_sale %} price-tag--sale{% endif %} {{ class }}" data-price>
+  {%- if product.price_varies and variant == blank -%}From {% endif -%}
+  {{- price | money -}}
+  {%- if on_sale %}<s>{{ compare | money }}</s>{% endif -%}
+</span>

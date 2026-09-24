@@ -1,0 +1,20 @@
+{%- comment -%}
+  Outputs "true" when the product is a 1 of 1 piece: tagged with the
+  theme's 1 of 1 tag, or in any collection whose title contains "1/1".
+  Usage: {%- capture is_one -%}{% render 'one-of-one', product: product %}{%- endcapture -%}
+{%- endcomment -%}
+{%- liquid
+  assign one = false
+  if settings.one_of_one_tag != blank and product.tags contains settings.one_of_one_tag
+    assign one = true
+  endif
+  unless one
+    for c in product.collections
+      if c.title contains '1/1'
+        assign one = true
+        break
+      endif
+    endfor
+  endunless
+  echo one
+-%}

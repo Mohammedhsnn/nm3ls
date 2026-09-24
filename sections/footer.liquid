@@ -1,0 +1,68 @@
+<footer class="site-footer">
+  <div class="page-width">
+    <div class="footer__cols">
+      <div>
+        <p class="footer__about">{{ section.settings.about | escape }}</p>
+      </div>
+      {%- for block in section.blocks -%}
+        <div class="footer__col" {{ block.shopify_attributes }}>
+          {%- case block.type -%}
+            {%- when 'menu' -%}
+              <h3>{{ block.settings.heading | escape }}</h3>
+              <ul>
+                {%- for link in linklists[block.settings.menu].links -%}
+                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- when 'social' -%}
+              <h3>{{ block.settings.heading | escape }}</h3>
+              <ul>
+                {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a></li>{%- endif -%}
+                {%- if settings.social_tiktok != blank -%}<li><a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a></li>{%- endif -%}
+              </ul>
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.giant != blank -%}
+      <div class="footer__giant" aria-hidden="true">{{ section.settings.giant | escape }}</div>
+    {%- endif -%}
+    <div class="footer__legal">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
+      <span>
+        {%- for policy in shop.policies -%}
+          <a href="{{ policy.url }}">{{ policy.title | escape }}</a>{% unless forloop.last %} · {% endunless %}
+        {%- endfor -%}
+      </span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": [
+    { "type": "textarea", "id": "about", "label": "About text", "default": "Reworked denim, club tees and one-of-one thrift finds. Picked, cut and finished by hand." },
+    { "type": "text", "id": "giant", "label": "Large wordmark", "default": "NOMORELS" }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social links",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Follow" }
+      ]
+    }
+  ]
+}
+{% endschema %}

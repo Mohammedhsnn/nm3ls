@@ -1,0 +1,87 @@
+{%- liquid
+  assign s = section.settings
+  assign col = s.collection
+  assign total = 0
+  assign left = 0
+  if col != blank
+    for product in col.products limit: s.limit
+      assign total = total | plus: 1
+      if product.available
+        assign left = left | plus: 1
+      endif
+    endfor
+  endif
+  assign gone = total | minus: left
+-%}
+<section class="section crate" data-crate id="crate-{{ section.id }}" {{ section.shopify_attributes }}>
+  <div class="page-width">
+    <div class="section-head">
+      <h2>{{ s.heading | escape }}{% if s.script != blank %}<em>{{ s.script | escape }}</em>{% endif %}</h2>
+      {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
+    </div>
+
+    <div class="crate__bar">
+      <div class="chips" role="group" aria-label="Filter pieces">
+        <button type="button" class="chip" data-filter="" aria-pressed="true">All</button>
+        {%- for block in section.blocks -%}
+          <button type="button" class="chip" data-filter="{{ block.settings.keywords | downcase | escape }}" aria-pressed="false" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</button>
+        {%- endfor -%}
+      </div>
+      <div class="crate__tools">
+        <label class="toggle" for="HideSold-{{ section.id }}"><input type="checkbox" id="HideSold-{{ section.id }}" data-hide-sold> Hide sold</label>
+        <span class="crate__count"><b>{{ left }}</b> in the crate · {{ gone }} gone</span>
+      </div>
+    </div>
+
+    <div class="rack" tabindex="0" aria-label="{{ s.heading | escape }}, scroll sideways" data-rack>
+      {%- if col != blank -%}
+        {%- for product in col.products limit: s.limit -%}
+          {% render 'product-card', product: product, show_catno: true, catno: forloop.index %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="card"><div class="card__media">{{ 'product-apparel-3' | placeholder_svg_tag: 'placeholder' }}</div><div class="card__info"><h3 class="card__title">Pick a collection</h3></div></div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <p class="rack__empty" data-rack-empty hidden>Nothing left in this bin. Check back after the next weekly drop.</p>
+
+    {%- if col != blank -%}
+      <div class="crate__foot"><a class="btn btn--outline" href="{{ col.url }}">See the full crate</a></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "1/1 crate",
+  "class": "section-crate",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The 1/1 crate" },
+    { "type": "text", "id": "script", "label": "Script accent", "default": "one each" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Hand-picked and reworked. One size, one piece — sold stays on the rack so you can see what you missed." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "limit", "label": "Maximum pieces", "min": 4, "max": 40, "step": 1, "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Filter",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Denim" },
+        { "type": "text", "id": "keywords", "label": "Matching words", "info": "Comma separated. Matched against product title, type and tags.", "default": "jort, short, jean, denim" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "1/1 crate",
+      "blocks": [
+        { "type": "filter", "settings": { "label": "Denim", "keywords": "jort, short, jean, denim" } },
+        { "type": "filter", "settings": { "label": "Zip ups", "keywords": "zip, hoodie, jacket" } },
+        { "type": "filter", "settings": { "label": "Footwear", "keywords": "vans, shoe, sneaker" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

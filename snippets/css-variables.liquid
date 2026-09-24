@@ -1,0 +1,27 @@
+{%- comment -%}
+  Theme colors come from Theme settings > Colors, so the palette can be tuned
+  in the editor without touching CSS.
+{%- endcomment -%}
+<style>
+  :root {
+    --bg: {{ settings.color_background }};
+    --surface: {{ settings.color_surface }};
+    --ink: {{ settings.color_text }};
+    --muted: {{ settings.color_muted }};
+    --line: {{ settings.color_border }};
+    --accent: {{ settings.color_accent }};
+    --accent-contrast: {{ settings.color_accent_text }};
+    --dark: {{ settings.color_dark }};
+    --dark-text: {{ settings.color_dark_text }};
+    --denim: {{ settings.color_denim }};
+
+    --display: "Bowlby One", "Arial Black", Impact, sans-serif;
+    --script: "Shrikhand", "Brush Script MT", cursive;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "DM Mono", ui-monospace, Menlo, monospace;
+
+    --gutter: max(16px, 4vw);
+    --page-width: {{ settings.page_width }}px;
+    --radius: {{ settings.radius }}px;
+  }
+</style>
