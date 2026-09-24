@@ -29,7 +29,8 @@
     {%- endif -%}
     <div class="footer__legal">
       <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>
-      <span>
+      <span class="footer__credit">Built by <a href="https://www.articxsoftware.nl" target="_blank" rel="noopener">Articx</a></span>
+      <span class="footer__policies">
         {%- for policy in shop.policies -%}
           <a href="{{ policy.url }}">{{ policy.title | escape }}</a>{% unless forloop.last %} · {% endunless %}
         {%- endfor -%}

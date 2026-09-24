@@ -311,8 +311,12 @@ table.data th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
 .footer__col a { text-decoration: none; opacity: .88; }
 .footer__col a:hover { opacity: 1; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 .footer__giant { font-family: var(--display); font-size: clamp(56px, 16.5vw, 270px); line-height: .78; letter-spacing: -.045em; text-align: center; white-space: nowrap; padding-bottom: 20px; color: color-mix(in srgb, var(--dark-text) 92%, var(--dark)); }
-.footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-block: 18px; border-top: 1px solid color-mix(in srgb, var(--dark-text) 15%, transparent); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.footer__legal { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding-block: 18px; border-top: 1px solid color-mix(in srgb, var(--dark-text) 15%, transparent); font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
 .footer__legal a { text-decoration: none; }
+.footer__credit { text-align: center; }
+.footer__credit a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.footer__credit a:hover { color: var(--accent); }
+.footer__policies { text-align: right; }
 
 /* ---------- toast ---------- */
 .toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); z-index: 200; transform: translate(-50%, calc(100% + 48px)); visibility: hidden; max-width: calc(100% - 32px); background: var(--ink); color: var(--bg); font-family: var(--mono); font-size: 13px; padding: 12px 18px; border-radius: var(--radius); transition: transform .3s, visibility .3s; }
