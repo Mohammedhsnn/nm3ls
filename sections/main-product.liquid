@@ -13,6 +13,7 @@
         {%- if media.media_type == 'image' -%}
           {%- liquid
             assign load = 'lazy'
+            assign media_alt = media.alt | default: product.title
             if forloop.first
               assign load = 'eager'
             endif
@@ -22,7 +23,7 @@
               loading: load,
               widths: '540, 720, 960, 1200, 1400',
               sizes: '(min-width: 860px) 55vw, 100vw',
-              alt: media.alt | default: product.title
+              alt: media_alt
             }}
           </figure>
         {%- endif -%}

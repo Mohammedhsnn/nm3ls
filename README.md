@@ -4,18 +4,29 @@ Online Store 2.0 theme for [nm3ls.com](https://nm3ls.com) (Nomorels / NML Club).
 Clean retro look: off-white, warm black and cherry red, with a spinning record,
 SOLD stamps on sold 1/1 pieces and a member-card signup.
 
-## Run it locally (live preview)
-
-Needs Node 18+ and staff access to the store.
+## Run it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-`npm run dev` runs `shopify theme dev` against `exayxs-wj.myshopify.com`. The first time,
-it opens a browser to log in. After that it serves the theme at http://127.0.0.1:9292
-with your real products, and hot-reloads on every file save. It does not change the live store.
+Opens a local preview at http://localhost:9292. No Shopify login needed: `dev/server.mjs`
+renders the theme files with LiquidJS, using the live products and collections from
+nm3ls.com. The bag, 1/1 limits, filters and signup all work, and the browser
+reloads when you save a theme file. Checkout stops at a placeholder page.
+
+The preview emulates Shopify, so a few things differ from the real store: every
+collection fits on one page, the theme editor isn't available, and the signup only
+logs to the terminal.
+
+### Real Shopify preview
+
+```bash
+npm run shopify:dev
+```
+
+Runs `shopify theme dev` against `exayxs-wj.myshopify.com` (needs a store login the first time).
 
 ## Put it on the store
 
@@ -54,6 +65,7 @@ All colors live in **Theme settings → Colors**, so the palette can be changed 
 ## Files
 
 ```
+dev/        local preview server (not uploaded to Shopify)
 layout/     theme.liquid, password.liquid
 sections/   homepage sections, main-* page sections, header/footer groups
 snippets/   product-card, price, cart-items, one-of-one, css-variables, meta-tags

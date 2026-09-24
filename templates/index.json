@@ -12,7 +12,7 @@
         "button_link": "shopify://collections/back-to-school-collection",
         "button2_label": "Dig the 1/1 crate",
         "button2_link": "shopify://collections/crimson-slouch-beanie",
-        "image": "shopify://shop_images/0B76B7C8-C261-42FC-B3A1-02FFDA653D9B.jpg",
+        "image": "shopify://shop_images/classicu_2026-08-27_174210A28DB95E153C.jpg",
         "caption_left": "Blur Club Tee",
         "caption_right": "Side A",
         "show_vinyl": true,
@@ -26,8 +26,8 @@
       "settings": {
         "heading": "New in",
         "script": "fresh press",
-        "text": "The back to school collection. Tees run S–2XL.",
-        "collection": "back-to-school-collection",
+        "text": "The newest pieces, straight off the rack. Tees run S–2XL.",
+        "collection": "all",
         "limit": 8,
         "columns": 4,
         "show_view_all": true

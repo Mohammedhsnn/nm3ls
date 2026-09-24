@@ -15,6 +15,7 @@
   assign tag_list = product.tags | join: ' '
   assign keywords = product.title | append: ' ' | append: product.type | append: ' ' | append: tag_list | downcase
   assign img_loading = loading | default: 'lazy'
+  assign img_alt = product.featured_media.alt | default: product.title
   assign sizes = ''
   for option in product.options_with_values
     assign opt_name = option.name | downcase
@@ -40,7 +41,7 @@
         loading: img_loading,
         widths: '360, 540, 720, 900',
         sizes: '(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw',
-        alt: product.featured_media.alt | default: product.title
+        alt: img_alt
       }}
       {%- if second and second.media_type == 'image' -%}
         {{ second | image_url: width: 900 | image_tag:
