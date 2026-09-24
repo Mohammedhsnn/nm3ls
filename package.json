@@ -8,7 +8,8 @@
     "shopify:dev": "shopify theme dev --store exayxs-wj.myshopify.com",
     "check": "shopify theme check",
     "push": "shopify theme push --unpublished --store exayxs-wj.myshopify.com",
-    "pull": "shopify theme pull --store exayxs-wj.myshopify.com"
+    "pull": "shopify theme pull --store exayxs-wj.myshopify.com",
+    "build": "node dev/build.mjs"
   },
   "devDependencies": {
     "@shopify/cli": "^4.8.2",

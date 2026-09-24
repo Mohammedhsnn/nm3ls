@@ -546,6 +546,28 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, fs.readFileSync(file), MIME[path.extname(file)] || 'application/octet-stream');
     }
 
+    // Product data for the static export's demo cart (dev/static-shim.js).
+    if (p === '/__catalog.json') {
+      const settings = settingsGlobal();
+      const variants = {};
+      const products = catalog.products.map((prod) => {
+        const one = isOneOfOne(prod, settings);
+        for (const v of prod.variants) {
+          variants[v.id] = {
+            product_title: prod.title, variant_title: v.title, has_only_default: prod.has_only_default_variant,
+            url: `${prod.url}?variant=${v.id}`, image: (v.featured_image || prod.featured_media || {}).src || '',
+            price: v.price, compare_at_price: v.compare_at_price, available: v.available, one
+          };
+        }
+        return {
+          title: prod.title, url: prod.url, tags: prod.tags, type: prod.type, price: prod.price, available: prod.available, one,
+          image: prod.media[0] ? prod.media[0].src : '', image2: prod.media[1] ? prod.media[1].src : '',
+          sizes: prod.has_only_default_variant ? '' : prod.raw_options[0].values.join(' · ')
+        };
+      });
+      return sendJSON(res, 200, { variants, products });
+    }
+
     /* Ajax Cart API */
     if (p === '/cart.js' || (p === '/cart' && req.headers.accept?.includes('application/json') && req.method === 'GET')) {
       return sendJSON(res, 200, cartJSON(cartObject(catalog)));

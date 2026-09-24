@@ -20,6 +20,16 @@ The preview emulates Shopify, so a few things differ from the real store: every
 collection fits on one page, the theme editor isn't available, and the signup only
 logs to the terminal.
 
+### Shareable preview (GitHub Pages)
+
+```bash
+npm run build
+```
+
+Writes a static copy of the site to `_site/` for the `gh-pages` branch. A small script
+(`dev/static-shim.js`) stands in for the Shopify cart, so the bag works as a demo in the
+visitor's browser; checkout, signup and accounts show a "demo preview" message.
+
 ### Real Shopify preview
 
 ```bash
@@ -65,7 +75,7 @@ All colors live in **Theme settings → Colors**, so the palette can be changed 
 ## Files
 
 ```
-dev/        local preview server (not uploaded to Shopify)
+dev/        local preview server + static export (not uploaded to Shopify)
 layout/     theme.liquid, password.liquid
 sections/   homepage sections, main-* page sections, header/footer groups
 snippets/   product-card, price, cart-items, one-of-one, css-variables, meta-tags

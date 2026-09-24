@@ -6,3 +6,4 @@ README.md
 .shopifyignore
 .theme-check.yml
 dev/
+_site/
