@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en" class="no-js motion grain" data-cursor>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      // Enable JS-only styles, and if motion.js never runs, reveal everything
+      // after 3s so scroll-hidden content can't stay hidden.
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      setTimeout(function () { if (!window.__nmlMotion) document.documentElement.classList.add('motion-fallback'); }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#F7F6F3">
+    <link rel="canonical" href="http://localhost:9393/">
+
+    <title>
+      Nomorels
+    </title>
+      <meta name="description" content="Reworked denim, club tees and one-of-one thrift finds.">
+
+    <meta property="og:site_name" content="Nomorels">
+<meta property="og:url" content="http://localhost:9393/">
+<meta property="og:title" content="Nomorels">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Reworked denim, club tees and one-of-one thrift finds.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nomorels">
+<meta name="twitter:description" content="Reworked denim, club tees and one-of-one thrift finds.">
+
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Bowlby+One&family=DM+Mono:wght@400;500&family=Shrikhand&display=swap">
+    
+
+    <style>
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --ink: #151311;
+    --muted: #6E675E;
+    --line: #E3DFD7;
+    --accent: #B42318;
+    --accent-contrast: #FFFFFF;
+    --dark: #151311;
+    --dark-text: #F7F6F3;
+    --denim: #22375A;
+
+    --display: "Bowlby One", "Arial Black", Impact, sans-serif;
+    --script: "Shrikhand", "Brush Script MT", cursive;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "DM Mono", ui-monospace, Menlo, monospace;
+
+    --gutter: max(16px, 4vw);
+    --page-width: 1440px;
+    --radius: 0px;
+  }
+</style>
+
+    <link href="/nm3ls/assets/theme.css?v=1790347649041" rel="stylesheet" type="text/css" media="all">
+    <link href="/nm3ls/assets/motion.css?v=1790345312321" rel="stylesheet" type="text/css" media="all">
+    <link href="/nm3ls/assets/mobile.css?v=1790345312322" rel="stylesheet" type="text/css" media="all">
+    <script src="/nm3ls/assets/theme.js?v=1790347649042" defer="defer"></script>
+      <script src="/nm3ls/assets/motion.js?v=1790345312322" defer="defer"></script>
+
+    
+  </head>
+
+  <body class="template-index">
+      <div class="intro" data-intro aria-hidden="true">
+    <div class="intro__grain"></div>
+    <div class="intro__record"></div>
+    <div class="intro__center">
+      <div class="intro__word">
+<span style="--c: 0">N</span><span style="--c: 1">M</span><span style="--c: 2">L</span>      </div>
+      <span class="intro__script">club</span>
+    </div>
+    <div class="intro__bar">
+      <span>Weekly 1/1 drops</span>
+      <span class="intro__count" data-intro-count>000</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var skip = false;
+      try {
+        skip = sessionStorage.getItem('nml-intro') === '1';
+        sessionStorage.setItem('nml-intro', '1');
+      } catch (e) {}
+      if (skip) { root.classList.add('intro-skip'); return; }
+      root.classList.add('intro-on');
+      var intro = document.querySelector('[data-intro]');
+      var count = intro.querySelector('[data-intro-count]');
+      var start = performance.now(), total = 1700;
+      (function tick(now) {
+        var p = Math.min(1, (now - start) / total);
+        count.textContent = String(Math.round(p * p * (3 - 2 * p) * 100)).padStart(3, '0');
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+      function done() {
+        if (root.classList.contains('intro-done')) return;
+        // Skipped early: start the hero entrance now instead of waiting.
+        var t = (performance.now() - start) / 1000;
+        if (t < 2.1) root.style.setProperty('--hero-delay', (t + 0.25).toFixed(2) + 's');
+        root.classList.add('intro-done');
+      }
+      intro.addEventListener('click', done);
+      setTimeout(done, 2300);
+    })();
+  </script>
+
+    <a class="skip-link" href="#MainContent">Skip to content</a>
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <div id="shopify-section-sections--header-group__announcement" class="shopify-section">  <div class="announcement" >
+    <div class="announcement__track">
+            <span >Weekly 1/1 drops</span>
+            <span >Ships in 2–3 business days</span>
+            <span >Hand-picked &amp; reworked</span>
+            <span >@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+    </div>
+  </div>
+
+
+</div><div id="shopify-section-sections--header-group__header" class="shopify-section"><header class="site-header" data-header>
+  <div class="page-width site-header__inner">
+    <div>
+      <nav class="nav" aria-label="Main">
+          <a href="/nm3ls/collections/all">Shop all</a>
+          <a href="/nm3ls/collections/back-to-school-collection">New in</a>
+          <a href="/nm3ls/collections/crimson-slouch-beanie">1/1 Pieces</a>
+          <a href="/nm3ls/collections/weekly-1-1-drops">Weekly drops</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="MobileMenu" data-menu-toggle>Menu</button>
+    </div>
+
+    <a class="logo" href="/nm3ls/" aria-label="Nomorels">
+        <span class="logo__mark">NML</span>
+<span class="logo__script">club</span>    </a>
+
+    <div class="header-actions">
+      <a href="/nm3ls/search" class="hide-mobile">Search</a>
+        <a href="/nm3ls/account/login" class="hide-mobile">Account</a>
+      <a href="/nm3ls/cart" class="cart-link" data-cart-open>
+        Bag <span class="cart-count" data-cart-count>0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="MobileMenu" aria-label="Mobile" data-mobile-menu>
+  <div class="mobile-menu__links">
+      <a href="/nm3ls/collections/all" style="--i: 0">Shop all<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/back-to-school-collection" style="--i: 1">New in<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/crimson-slouch-beanie" style="--i: 2">1/1 Pieces<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/weekly-1-1-drops" style="--i: 3">Weekly drops<span aria-hidden="true">→</span></a>
+  </div>
+  <div class="mobile-menu__foot">
+    <a href="/nm3ls/search">Search</a>
+      <a href="/nm3ls/account/login">Account</a>
+<a href="https://www.instagram.com/nml.club/" target="_blank" rel="noopener">Instagram</a>  </div>
+</nav>
+
+  <div class="mobile-bar" data-mobile-bar>
+    <a href="/nm3ls/collections/all">Shop all</a>
+      <a href="/nm3ls/collections/crimson-slouch-beanie">1/1 crate</a>
+    <a href="/nm3ls/cart" class="mobile-bar__bag" data-cart-open>Bag <span class="cart-count" data-cart-count>0</span></a>
+  </div>
+
+
+</div>
+
+    <main id="MainContent" role="main" tabindex="-1">
+      <div id="shopify-section-template--index__hero" class="shopify-section"><section class="hero" data-hero >
+  <div class="page-width hero__inner">
+    <div>
+        <p class="eyebrow hero__eyebrow hero-in" style="--d: 0"><span class="dot"></span>Back to school drop — live now</p>
+      <div class="wordmark" aria-hidden="true">
+        <span class="wordmark__big" data-fit-text>
+<span class="char" style="--c: 0">N</span><span class="char" style="--c: 1">M</span><span class="char" style="--c: 2">L</span>        </span>
+<span class="wordmark__script hero-stamp">club</span>      </div>
+      <h1 class="hero-in" style="--d: 4">Reworked denim, club tees &amp; one-of-one thrift finds.</h1>
+<div class="hero__text rte hero-in" style="--d: 5"><p>Every 1/1 piece is picked, cut and finished by hand. There is one of each — when it sells, it's gone for good.</p></div>      <div class="hero__ctas hero-in" style="--d: 6">
+<a class="btn" href="/nm3ls/collections/back-to-school-collection">Shop the drop</a><a class="btn btn--outline" href="/nm3ls/collections/crimson-slouch-beanie">Dig the 1/1 crate</a>      </div>
+    </div>
+
+    <div class="hero__media hero-media-in">
+        <div class="vinyl" data-vinyl aria-hidden="true"><div class="vinyl__label"><span>nml</span></div></div>
+      <figure class="hero__frame">
+        <div class="hero__img" data-parallax="0.08">
+          <img src="https://nm3ls.com/cdn/shop/files/classicu_2026-08-27_174210A28DB95E153C.jpg?width=1200" srcset="https://nm3ls.com/cdn/shop/files/classicu_2026-08-27_174210A28DB95E153C.jpg?width=480 480w, https://nm3ls.com/cdn/shop/files/classicu_2026-08-27_174210A28DB95E153C.jpg?width=720 720w, https://nm3ls.com/cdn/shop/files/classicu_2026-08-27_174210A28DB95E153C.jpg?width=960 960w, https://nm3ls.com/cdn/shop/files/classicu_2026-08-27_174210A28DB95E153C.jpg?width=1200 1200w" sizes="(min-width: 860px) 460px, 76vw" alt="Reworked denim, club tees &amp; one-of-one thrift finds." loading="eager" fetchpriority="high">
+        </div>
+        <figcaption class="hero__caption"><span>Blur Club Tee</span><span>Side A</span></figcaption>
+      </figure>
+        <div class="hero__sticker" data-spin-on-scroll aria-hidden="true"><div><b>1/1</b><small>weekly<br />
+drops</small></div></div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__tape_top" class="shopify-section"><section class="tapes tapes--accent" style="--tape-tilt: 3deg" >
+  <div class="tape tape--a" data-marquee data-speed="2" data-dir="-1" aria-label="NML Club, 1/1 only, Weekly drops, Hand-picked">
+    <div class="tape__track" data-marquee-track aria-hidden="true">
+          <span class="tape__item">NML Club</span><span class="tape__star">✦</span>
+          <span class="tape__item">1/1 only</span><span class="tape__star">✦</span>
+          <span class="tape__item">Weekly drops</span><span class="tape__star">✦</span>
+          <span class="tape__item">Hand-picked</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club</span><span class="tape__star">✦</span>
+          <span class="tape__item">1/1 only</span><span class="tape__star">✦</span>
+          <span class="tape__item">Weekly drops</span><span class="tape__star">✦</span>
+          <span class="tape__item">Hand-picked</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club</span><span class="tape__star">✦</span>
+          <span class="tape__item">1/1 only</span><span class="tape__star">✦</span>
+          <span class="tape__item">Weekly drops</span><span class="tape__star">✦</span>
+          <span class="tape__item">Hand-picked</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club</span><span class="tape__star">✦</span>
+          <span class="tape__item">1/1 only</span><span class="tape__star">✦</span>
+          <span class="tape__item">Weekly drops</span><span class="tape__star">✦</span>
+          <span class="tape__item">Hand-picked</span><span class="tape__star">✦</span>
+    </div>
+  </div>
+    <div class="tape tape--b" data-marquee data-speed="2" data-dir="1" aria-hidden="true">
+      <div class="tape__track" data-marquee-track>
+            <span class="tape__item">Reworked denim</span><span class="tape__star">●</span>
+            <span class="tape__item">Club tees</span><span class="tape__star">●</span>
+            <span class="tape__item">Gone when it&#39;s gone</span><span class="tape__star">●</span>
+            <span class="tape__item">Reworked denim</span><span class="tape__star">●</span>
+            <span class="tape__item">Club tees</span><span class="tape__star">●</span>
+            <span class="tape__item">Gone when it&#39;s gone</span><span class="tape__star">●</span>
+            <span class="tape__item">Reworked denim</span><span class="tape__star">●</span>
+            <span class="tape__item">Club tees</span><span class="tape__star">●</span>
+            <span class="tape__item">Gone when it&#39;s gone</span><span class="tape__star">●</span>
+            <span class="tape__item">Reworked denim</span><span class="tape__star">●</span>
+            <span class="tape__item">Club tees</span><span class="tape__star">●</span>
+            <span class="tape__item">Gone when it&#39;s gone</span><span class="tape__star">●</span>
+      </div>
+    </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__new_in" class="shopify-section"><section class="section" >
+  <div class="page-width">
+    <div class="section-head">
+      <h2 data-reveal="clip">New in<em>fresh press</em></h2>
+      <div data-reveal="up" style="--i: 2">
+<p>The newest pieces, straight off the rack. Tees run S–2XL.</p><p style="margin-top:12px"><a class="link" href="/nm3ls/collections/all">View all 23</a></p>      </div>
+    </div>
+    <div class="grid grid--swipe" style="--cols: 4" data-reveal-group data-swipe>
+          <a
+  href="/nm3ls/products/graffiti-striped-sworts"
+  class="card"
+  data-card
+  data-keywords="graffiti striped sworts  "
+  data-available="true"
+>
+  <div class="card__media">
+      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FCE97066-ACA8-4F9B-91CA-91D0D1195F12.jpg?v=1789664971&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FCE97066-ACA8-4F9B-91CA-91D0D1195F12.jpg?v=1789664971&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FCE97066-ACA8-4F9B-91CA-91D0D1195F12.jpg?v=1789664971&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FCE97066-ACA8-4F9B-91CA-91D0D1195F12.jpg?v=1789664971&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FCE97066-ACA8-4F9B-91CA-91D0D1195F12.jpg?v=1789664971&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Graffiti Striped Sworts" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Graffiti Striped Sworts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/blur-club-tee"
+  class="card"
+  data-card
+  data-keywords="blur club tee  "
+  data-available="true"
+>
+  <div class="card__media">
+      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/D2A6E901-5800-434C-BDA1-43B6F65B7CDF.jpg?v=1788553474&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/D2A6E901-5800-434C-BDA1-43B6F65B7CDF.jpg?v=1788553474&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/D2A6E901-5800-434C-BDA1-43B6F65B7CDF.jpg?v=1788553474&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/D2A6E901-5800-434C-BDA1-43B6F65B7CDF.jpg?v=1788553474&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/D2A6E901-5800-434C-BDA1-43B6F65B7CDF.jpg?v=1788553474&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Blur Club Tee" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/19602414-7AC1-48DE-B9CF-D41A7641A9AF.jpg?v=1788553474&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/19602414-7AC1-48DE-B9CF-D41A7641A9AF.jpg?v=1788553474&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/19602414-7AC1-48DE-B9CF-D41A7641A9AF.jpg?v=1788553474&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/19602414-7AC1-48DE-B9CF-D41A7641A9AF.jpg?v=1788553474&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/19602414-7AC1-48DE-B9CF-D41A7641A9AF.jpg?v=1788553474&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Blur Club Tee</h3>
+    </div>
+    <span class="price-tag " data-price>
+$45.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/betty-boop-slub-tee"
+  class="card"
+  data-card
+  data-keywords="betty boop slub tee  "
+  data-available="true"
+>
+  <div class="card__media">
+      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7AB450D6-33B7-48C0-BD31-7459FB28D025.jpg?v=1788553894&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7AB450D6-33B7-48C0-BD31-7459FB28D025.jpg?v=1788553894&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7AB450D6-33B7-48C0-BD31-7459FB28D025.jpg?v=1788553894&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7AB450D6-33B7-48C0-BD31-7459FB28D025.jpg?v=1788553894&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7AB450D6-33B7-48C0-BD31-7459FB28D025.jpg?v=1788553894&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Betty Boop Slub Tee" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2A5A8AA8-3F70-483E-B28F-768C266CB2CC.jpg?v=1788553894&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2A5A8AA8-3F70-483E-B28F-768C266CB2CC.jpg?v=1788553894&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2A5A8AA8-3F70-483E-B28F-768C266CB2CC.jpg?v=1788553894&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2A5A8AA8-3F70-483E-B28F-768C266CB2CC.jpg?v=1788553894&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2A5A8AA8-3F70-483E-B28F-768C266CB2CC.jpg?v=1788553894&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Betty Boop Slub Tee</h3>
+    </div>
+    <span class="price-tag " data-price>
+$45.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/matcha-pinstripe-hat"
+  class="card"
+  data-card
+  data-keywords="matcha pinstripe hat  "
+  data-available="true"
+>
+  <div class="card__media">
+      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7E02F3BF-4EC6-4470-8AF7-418F8EF247BD.jpg?v=1788585665&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7E02F3BF-4EC6-4470-8AF7-418F8EF247BD.jpg?v=1788585665&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7E02F3BF-4EC6-4470-8AF7-418F8EF247BD.jpg?v=1788585665&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7E02F3BF-4EC6-4470-8AF7-418F8EF247BD.jpg?v=1788585665&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7E02F3BF-4EC6-4470-8AF7-418F8EF247BD.jpg?v=1788585665&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Matcha Pinstripe Hat" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2D845B54-7A31-44FC-9C80-219030D8F9F4.jpg?v=1788585665&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2D845B54-7A31-44FC-9C80-219030D8F9F4.jpg?v=1788585665&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2D845B54-7A31-44FC-9C80-219030D8F9F4.jpg?v=1788585665&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2D845B54-7A31-44FC-9C80-219030D8F9F4.jpg?v=1788585665&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2D845B54-7A31-44FC-9C80-219030D8F9F4.jpg?v=1788585665&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Matcha Pinstripe Hat</h3>
+    </div>
+    <span class="price-tag " data-price>
+$45.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/nml-vans"
+  class="card"
+  data-card
+  data-keywords="nml vans  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="NML VANS" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">NML VANS</h3>
+    </div>
+    <span class="price-tag " data-price>
+$250.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/multi-panel-zip-up"
+  class="card card--sold"
+  data-card
+  data-keywords="multi panel zip up  "
+  data-available="false"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Multi Panel Zip Up" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+<span class="stamp">SOLD</span>  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Multi Panel Zip Up</h3>
+    </div>
+    <span class="price-tag " data-price>
+$80.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/archive-zip-up-blue-sleeve"
+  class="card"
+  data-card
+  data-keywords="archive zip up (red sleeve)  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Archive Zip Up (Red Sleeve)" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Archive Zip Up (Red Sleeve)</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/untitled-jul28_08-06-33"
+  class="card"
+  data-card
+  data-keywords="archive zip up (brown sleeve)  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Archive Zip Up (Brown Sleeve)" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Archive Zip Up (Brown Sleeve)</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+    </div>
+      <div class="swipe-bar swipe-bar--mobile" aria-hidden="true"><span data-swipe-thumb></span></div>
+<a class="btn btn--outline btn--full swipe-all" href="/nm3ls/collections/all">View all 23</a>  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__crate" class="shopify-section"><section class="section crate" data-crate id="crate-template--index__crate" >
+  <div class="page-width">
+    <div class="section-head">
+      <h2 data-reveal="clip">The 1/1 crate<em>one each</em></h2>
+<p data-reveal="up" style="--i: 2">Hand-picked and reworked. One size, one piece — sold stays on the rack so you can see what you missed.</p>    </div>
+
+    <div class="crate__bar" data-reveal="up">
+      <div class="chips" role="group" aria-label="Filter pieces">
+        <button type="button" class="chip" data-filter="" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="jort, short, jean, denim" aria-pressed="false" >Denim</button>
+          <button type="button" class="chip" data-filter="zip, hoodie, jacket" aria-pressed="false" >Zip ups</button>
+          <button type="button" class="chip" data-filter="vans, shoe, sneaker" aria-pressed="false" >Footwear</button>
+      </div>
+      <div class="crate__tools">
+        <label class="toggle" for="HideSold-template--index__crate"><input type="checkbox" id="HideSold-template--index__crate" data-hide-sold> Hide sold</label>
+        <span class="crate__count"><b>7</b> in the crate · 1 gone</span>
+      </div>
+    </div>
+
+    <div class="rack" tabindex="0" aria-label="The 1/1 crate, scroll sideways" data-rack data-swipe data-reveal-group>
+          <a
+  href="/nm3ls/products/nml-vans"
+  class="card"
+  data-card
+  data-keywords="nml vans  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1B87520B-0C6F-498A-8D70-35EF12EAEFCE.jpg?v=1786840091&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="NML VANS" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/C29D58E9-DA66-4030-A996-B4F50A4592A3.jpg?v=1786840091&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-001</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">NML VANS</h3>
+    </div>
+    <span class="price-tag " data-price>
+$250.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/multi-panel-zip-up"
+  class="card card--sold"
+  data-card
+  data-keywords="multi panel zip up  "
+  data-available="false"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/759F61CC-1311-493D-B504-85D7BF38E101.jpg?v=1785815454&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Multi Panel Zip Up" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/2CF9DD21-DF13-4850-A437-B6A5D062E0D3.jpg?v=1785815454&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+<span class="stamp">SOLD</span>  </div>
+    <span class="card__catno">NML-002</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Multi Panel Zip Up</h3>
+    </div>
+    <span class="price-tag " data-price>
+$80.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/archive-zip-up-blue-sleeve"
+  class="card"
+  data-card
+  data-keywords="archive zip up (red sleeve)  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/82C3476C-5E11-4A01-8B04-BB71D5CE9945.jpg?v=1785814755&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Archive Zip Up (Red Sleeve)" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/B3050C96-9548-41FB-A323-E114DCA3F366.jpg?v=1785814802&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-003</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Archive Zip Up (Red Sleeve)</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/untitled-jul28_08-06-33"
+  class="card"
+  data-card
+  data-keywords="archive zip up (brown sleeve)  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0D43D3CE-F5C8-4286-90EB-C6B48D43AA6E.jpg?v=1785808009&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Archive Zip Up (Brown Sleeve)" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/FEF8912B-7BB1-4B1C-BD56-7C09BC1E59E3.jpg?v=1785808034&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-004</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Archive Zip Up (Brown Sleeve)</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/imperfection-womens-double-knee-jorts"
+  class="card"
+  data-card
+  data-keywords="“imperfection” womens double knee jorts  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/5B807C26-D4A4-46F2-BEF8-71B8E3D3AC56.jpg?v=1778880911&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/5B807C26-D4A4-46F2-BEF8-71B8E3D3AC56.jpg?v=1778880911&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/5B807C26-D4A4-46F2-BEF8-71B8E3D3AC56.jpg?v=1778880911&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/5B807C26-D4A4-46F2-BEF8-71B8E3D3AC56.jpg?v=1778880911&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/5B807C26-D4A4-46F2-BEF8-71B8E3D3AC56.jpg?v=1778880911&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="“imperfection” womens double knee jorts" loading="lazy">
+  </div>
+    <span class="card__catno">NML-005</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">“imperfection” womens double knee jorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$50.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/plaid-distressed-straight-jeans"
+  class="card"
+  data-card
+  data-keywords="plaid distressed straight jeans  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/752A462C-13F1-484D-BDAA-7D944E9248B8.jpg?v=1778882081&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/752A462C-13F1-484D-BDAA-7D944E9248B8.jpg?v=1778882081&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/752A462C-13F1-484D-BDAA-7D944E9248B8.jpg?v=1778882081&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/752A462C-13F1-484D-BDAA-7D944E9248B8.jpg?v=1778882081&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/752A462C-13F1-484D-BDAA-7D944E9248B8.jpg?v=1778882081&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="plaid distressed straight jeans" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F4F352A2-AB1B-4342-9937-25B2FD10CA25.jpg?v=1778882131&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F4F352A2-AB1B-4342-9937-25B2FD10CA25.jpg?v=1778882131&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F4F352A2-AB1B-4342-9937-25B2FD10CA25.jpg?v=1778882131&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F4F352A2-AB1B-4342-9937-25B2FD10CA25.jpg?v=1778882131&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F4F352A2-AB1B-4342-9937-25B2FD10CA25.jpg?v=1778882131&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-006</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">plaid distressed straight jeans</h3>
+    </div>
+    <span class="price-tag " data-price>
+$65.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/multi-pocket-jorts"
+  class="card"
+  data-card
+  data-keywords="multi pocket jorts  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0EB1B91E-AA73-4767-A00A-73C42EB0043B.jpg?v=1778881790&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0EB1B91E-AA73-4767-A00A-73C42EB0043B.jpg?v=1778881790&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0EB1B91E-AA73-4767-A00A-73C42EB0043B.jpg?v=1778881790&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0EB1B91E-AA73-4767-A00A-73C42EB0043B.jpg?v=1778881790&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/0EB1B91E-AA73-4767-A00A-73C42EB0043B.jpg?v=1778881790&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Multi pocket jorts" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F90AA93C-9BEC-4CF7-97B4-D4FCE8F8AFC4.jpg?v=1778881822&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F90AA93C-9BEC-4CF7-97B4-D4FCE8F8AFC4.jpg?v=1778881822&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F90AA93C-9BEC-4CF7-97B4-D4FCE8F8AFC4.jpg?v=1778881822&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F90AA93C-9BEC-4CF7-97B4-D4FCE8F8AFC4.jpg?v=1778881822&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/F90AA93C-9BEC-4CF7-97B4-D4FCE8F8AFC4.jpg?v=1778881822&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-007</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Multi pocket jorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$60.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/dark-tan-double-knee-shorts"
+  class="card"
+  data-card
+  data-keywords="dark tan double knee shorts  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7953DF64-918A-4191-814C-F6DA5AA6621D.jpg?v=1778878882&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7953DF64-918A-4191-814C-F6DA5AA6621D.jpg?v=1778878882&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7953DF64-918A-4191-814C-F6DA5AA6621D.jpg?v=1778878882&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7953DF64-918A-4191-814C-F6DA5AA6621D.jpg?v=1778878882&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7953DF64-918A-4191-814C-F6DA5AA6621D.jpg?v=1778878882&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Dark tan double knee shorts" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/80493853-6B62-42EF-9704-D85BD11D7731.jpg?v=1778878919&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/80493853-6B62-42EF-9704-D85BD11D7731.jpg?v=1778878919&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/80493853-6B62-42EF-9704-D85BD11D7731.jpg?v=1778878919&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/80493853-6B62-42EF-9704-D85BD11D7731.jpg?v=1778878919&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/80493853-6B62-42EF-9704-D85BD11D7731.jpg?v=1778878919&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+    <span class="card__catno">NML-008</span>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Dark tan double knee shorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$60.00</span>
+
+  </div>
+</a>
+
+    </div>
+    <div class="swipe-bar" aria-hidden="true"><span data-swipe-thumb></span></div>
+    <p class="rack__empty" data-rack-empty hidden>Nothing left in this bin. Check back after the next weekly drop.</p>
+
+      <div class="crate__foot"><a class="btn btn--outline" href="/nm3ls/collections/crimson-slouch-beanie">See the full crate</a></div>
+  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__weekly" class="shopify-section"><section class="section" >
+  <div class="page-width">
+    <div class="section-head">
+      <h2 data-reveal="clip">Weekly drops<em>gone fast</em></h2>
+      <div data-reveal="up" style="--i: 2">
+<p>Last week&#39;s 1/1 customs. Most of them lasted less than a day.</p><p style="margin-top:12px"><a class="link" href="/nm3ls/collections/weekly-1-1-drops">View all 5</a></p>      </div>
+    </div>
+    <div class="grid grid--swipe" style="--cols: 4" data-reveal-group data-swipe>
+          <a
+  href="/nm3ls/products/hidden-flannel-camo-shorts"
+  class="card card--sold"
+  data-card
+  data-keywords="hidden flannel camo shorts  "
+  data-available="false"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7489B1C1-728A-4DC8-AC6E-7380310F993D.jpg?v=1784399803&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7489B1C1-728A-4DC8-AC6E-7380310F993D.jpg?v=1784399803&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7489B1C1-728A-4DC8-AC6E-7380310F993D.jpg?v=1784399803&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7489B1C1-728A-4DC8-AC6E-7380310F993D.jpg?v=1784399803&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/7489B1C1-728A-4DC8-AC6E-7380310F993D.jpg?v=1784399803&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Hidden flannel camo shorts" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1931E864-D521-4F47-8959-CD5B5D33C680.jpg?v=1784399804&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1931E864-D521-4F47-8959-CD5B5D33C680.jpg?v=1784399804&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1931E864-D521-4F47-8959-CD5B5D33C680.jpg?v=1784399804&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1931E864-D521-4F47-8959-CD5B5D33C680.jpg?v=1784399804&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/1931E864-D521-4F47-8959-CD5B5D33C680.jpg?v=1784399804&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+<span class="stamp">SOLD</span>  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Hidden flannel camo shorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$85.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/3-4-double-knee-jorts"
+  class="card"
+  data-card
+  data-keywords="3/4 double knee jorts  "
+  data-available="true"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/ECC21F18-08AE-4DE0-82BF-8D2B05DB7B84.jpg?v=1784400172&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/ECC21F18-08AE-4DE0-82BF-8D2B05DB7B84.jpg?v=1784400172&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/ECC21F18-08AE-4DE0-82BF-8D2B05DB7B84.jpg?v=1784400172&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/ECC21F18-08AE-4DE0-82BF-8D2B05DB7B84.jpg?v=1784400172&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/ECC21F18-08AE-4DE0-82BF-8D2B05DB7B84.jpg?v=1784400172&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="3/4 double knee jorts" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/3D4F2726-5A64-49CA-AEA8-7217093C2AF7.jpg?v=1784400210&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/3D4F2726-5A64-49CA-AEA8-7217093C2AF7.jpg?v=1784400210&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/3D4F2726-5A64-49CA-AEA8-7217093C2AF7.jpg?v=1784400210&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/3D4F2726-5A64-49CA-AEA8-7217093C2AF7.jpg?v=1784400210&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/3D4F2726-5A64-49CA-AEA8-7217093C2AF7.jpg?v=1784400210&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">3/4 double knee jorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$60.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/inside-out-flare-jorts"
+  class="card card--sold"
+  data-card
+  data-keywords="inside out flare jorts  "
+  data-available="false"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/6D02AF64-BA6B-4011-AB0E-CDC961785D1E.jpg?v=1784399803&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/6D02AF64-BA6B-4011-AB0E-CDC961785D1E.jpg?v=1784399803&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/6D02AF64-BA6B-4011-AB0E-CDC961785D1E.jpg?v=1784399803&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/6D02AF64-BA6B-4011-AB0E-CDC961785D1E.jpg?v=1784399803&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/6D02AF64-BA6B-4011-AB0E-CDC961785D1E.jpg?v=1784399803&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Inside Out Flare jorts" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/15ABDD89-4A02-499E-9FEA-D5923D56ED07.jpg?v=1784399803&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/15ABDD89-4A02-499E-9FEA-D5923D56ED07.jpg?v=1784399803&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/15ABDD89-4A02-499E-9FEA-D5923D56ED07.jpg?v=1784399803&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/15ABDD89-4A02-499E-9FEA-D5923D56ED07.jpg?v=1784399803&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/15ABDD89-4A02-499E-9FEA-D5923D56ED07.jpg?v=1784399803&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="" class="card__alt" loading="lazy">
+<span class="stamp">SOLD</span>  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Inside Out Flare jorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$55.00</span>
+
+  </div>
+</a>
+
+          <a
+  href="/nm3ls/products/graffiti-camo-shorts"
+  class="card card--sold"
+  data-card
+  data-keywords="graffiti camo shorts  "
+  data-available="false"
+>
+  <div class="card__media">
+<span class="badge badge--one">1 of 1</span>      <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/9900005F-2800-4498-97ED-D221005B920C.jpg?v=1784399802&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/9900005F-2800-4498-97ED-D221005B920C.jpg?v=1784399802&amp;width=360 360w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/9900005F-2800-4498-97ED-D221005B920C.jpg?v=1784399802&amp;width=540 540w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/9900005F-2800-4498-97ED-D221005B920C.jpg?v=1784399802&amp;width=720 720w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/9900005F-2800-4498-97ED-D221005B920C.jpg?v=1784399802&amp;width=900 900w" sizes="(min-width: 1024px) 25vw, (min-width: 560px) 33vw, 50vw" alt="Graffiti Camo shorts" loading="lazy">
+<span class="stamp">SOLD</span>  </div>
+  <div class="card__info">
+    <div>
+      <h3 class="card__title">Graffiti Camo shorts</h3>
+    </div>
+    <span class="price-tag " data-price>
+$110.00</span>
+
+  </div>
+</a>
+
+    </div>
+      <div class="swipe-bar swipe-bar--mobile" aria-hidden="true"><span data-swipe-thumb></span></div>
+<a class="btn btn--outline btn--full swipe-all" href="/nm3ls/collections/weekly-1-1-drops">View all 5</a>  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__records" class="shopify-section"><section class="section feature" >
+  <div class="page-width feature__inner">
+    <div data-reveal-group>
+      <h2>NML Club Records<small>House label</small></h2>
+<div class="feature__text rte"><p>The club's in-house print. Oversized fit, washed-out black, the record logo cracked across the chest like it's been played a thousand times.</p></div>      <ul class="specs">
+          <li ><span>Cat. no.</span><span>NML-REC-01</span></li>
+          <li ><span>Fit</span><span>Oversized</span></li>
+          <li ><span>Care</span><span>Wash inside out, low</span></li>
+          <li><span>Price</span><span>$35.00 · Sold out</span></li>
+      </ul>
+        <a class="btn" href="/nm3ls/products/records-tee">View the tee</a>
+    </div>
+    <div class="feature__stage">
+      <div class="vinyl" data-vinyl aria-hidden="true"><div class="vinyl__label"><span>records</span></div></div>
+      <div class="feature__jacket" data-parallax="-0.06" data-reveal="tilt">
+          <img src="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/89AC4D62-D774-47DB-94F2-E623B7964113.jpg?v=1780758270&amp;width=900" srcset="https://cdn.shopify.com/s/files/1/0784/0792/5978/files/89AC4D62-D774-47DB-94F2-E623B7964113.jpg?v=1780758270&amp;width=400 400w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/89AC4D62-D774-47DB-94F2-E623B7964113.jpg?v=1780758270&amp;width=600 600w, https://cdn.shopify.com/s/files/1/0784/0792/5978/files/89AC4D62-D774-47DB-94F2-E623B7964113.jpg?v=1780758270&amp;width=900 900w" sizes="(min-width: 860px) 360px, 70vw" alt="NML CLUB RECORDS" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__tape_bottom" class="shopify-section"><section class="tapes tapes--outline" style="--tape-tilt: 0deg" >
+  <div class="tape tape--a" data-marquee data-speed="1" data-dir="-1" aria-label="Join the club, Members see it first, NML Club Records">
+    <div class="tape__track" data-marquee-track aria-hidden="true">
+          <span class="tape__item">Join the club</span><span class="tape__star">✦</span>
+          <span class="tape__item">Members see it first</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club Records</span><span class="tape__star">✦</span>
+          <span class="tape__item">Join the club</span><span class="tape__star">✦</span>
+          <span class="tape__item">Members see it first</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club Records</span><span class="tape__star">✦</span>
+          <span class="tape__item">Join the club</span><span class="tape__star">✦</span>
+          <span class="tape__item">Members see it first</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club Records</span><span class="tape__star">✦</span>
+          <span class="tape__item">Join the club</span><span class="tape__star">✦</span>
+          <span class="tape__item">Members see it first</span><span class="tape__star">✦</span>
+          <span class="tape__item">NML Club Records</span><span class="tape__star">✦</span>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<div id="shopify-section-template--index__club" class="shopify-section"><section class="section club" >
+  <div class="page-width club__inner">
+    <div data-reveal-group>
+<p class="eyebrow">Members get the drop first</p>      <h2>Join the club</h2>
+<div class="club__text rte"><p>Weekly 1/1 drops go live without warning. Members hear about them first, with a preview of every piece before it hits the crate.</p></div>
+<form method="post" action="/nm3ls/contact" accept-charset="UTF-8" id="ClubForm" class="club-form" data-club-form=""><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓">        <input type="hidden" name="contact[tags]" value="newsletter,nml-club">
+        <div class="field">
+          <label for="ClubName-template--index__club">Name on your card</label>
+          <input id="ClubName-template--index__club" type="text" name="contact[first_name]" autocomplete="given-name" maxlength="22" placeholder="Jordan" data-club-name>
+        </div>
+        <div class="field">
+          <label for="ClubEmail-template--index__club">Email</label>
+          <input id="ClubEmail-template--index__club" type="email" name="contact[email]" autocomplete="email" required placeholder="you@email.com" data-club-email
+            >
+        </div>
+        <button class="btn" type="submit">Get my member card</button>
+</form>    </div>
+
+    <div class="mcard" data-member-card data-reveal="card" aria-hidden="true">
+      <div class="mcard__row"><span class="mcard__brand">NML<i>club</i></span><span class="mcard__kind">Member</span></div>
+      <div class="mcard__who" data-card-name>Your name here</div>
+      <div class="mcard__nums">
+        <span>No.<b data-card-no>0000</b></span>
+        <span>Since<b>2026</b></span>
+        <span>Tier<b>Crate digger</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+    </main>
+
+    <div id="shopify-section-sections--footer-group__footer" class="shopify-section"><footer class="site-footer">
+  <div class="page-width">
+    <div class="footer__cols" data-reveal-group>
+      <div>
+        <p class="footer__about">Reworked denim, club tees and one-of-one thrift finds. Picked, cut and finished by hand.</p>
+      </div>
+        <div class="footer__col" >
+              <h3>Shop</h3>
+              <ul>
+                  <li><a href="/nm3ls/collections/all">Shop all</a></li>
+                  <li><a href="/nm3ls/collections/back-to-school-collection">New in</a></li>
+                  <li><a href="/nm3ls/collections/crimson-slouch-beanie">1/1 Pieces</a></li>
+                  <li><a href="/nm3ls/collections/weekly-1-1-drops">Weekly drops</a></li>
+              </ul>
+        </div>
+        <div class="footer__col" >
+              <h3>Help</h3>
+              <ul>
+                  <li><a href="/nm3ls/search">Search</a></li>
+                  <li><a href="/nm3ls/pages/shipping">Shipping</a></li>
+                  <li><a href="/nm3ls/pages/contact">Contact</a></li>
+              </ul>
+        </div>
+        <div class="footer__col" >
+              <h3>Follow</h3>
+              <ul>
+<li><a href="https://www.instagram.com/nml.club/" target="_blank" rel="noopener">Instagram</a></li>              </ul>
+        </div>
+    </div>
+      <div class="footer__giant" data-reveal="chars" data-fit-text aria-hidden="true">
+<span class="char" style="--c: 0">N</span><span class="char" style="--c: 1">O</span><span class="char" style="--c: 2">M</span><span class="char" style="--c: 3">O</span><span class="char" style="--c: 4">R</span><span class="char" style="--c: 5">E</span><span class="char" style="--c: 6">L</span><span class="char" style="--c: 7">S</span>      </div>
+    <div class="footer__legal">
+      <span>&copy; 2026 Nomorels</span>
+      <span class="footer__credit">Built by <a href="https://www.articxsoftware.nl" target="_blank" rel="noopener">Articx</a></span>
+      <span class="footer__policies">
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+    <div id="shopify-section-cart-drawer" class="shopify-section"><div class="drawer-scrim" data-drawer-scrim></div>
+<aside class="cart-drawer" id="CartDrawer" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" data-cart-drawer>
+  <div class="cart-drawer__head">
+    <h2 id="CartDrawerTitle">Your bag <span class="cart-count" data-cart-count>0</span></h2>
+    <button type="button" class="cart-drawer__close" data-drawer-close>Close</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-body>
+      <div class="cart-empty">
+        <p>Your bag is empty.</p>
+        <a class="btn btn--outline" href="/nm3ls/collections/all">Start digging</a>
+      </div>
+  </div>
+</aside>
+
+
+</div>
+    <div class="toast" id="Toast" role="status" aria-live="polite"></div>
+
+    <script>
+      window.theme = {
+        routes: {
+          root: "/nm3ls/",
+          cartAdd: "/cart/add",
+          cartChange: "/cart/change",
+          cart: "/cart"
+        },
+        cartType: "drawer"
+      };
+    </script>
+  
+<script>window.STATIC_BASE="/nm3ls/"</script><script src="/nm3ls/assets/static-shim.js"></script>
+</body>
+</html>

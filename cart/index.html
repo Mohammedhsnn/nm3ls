@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" class="no-js motion grain" data-cursor>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      // Enable JS-only styles, and if motion.js never runs, reveal everything
+      // after 3s so scroll-hidden content can't stay hidden.
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      setTimeout(function () { if (!window.__nmlMotion) document.documentElement.classList.add('motion-fallback'); }, 3000);
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#F7F6F3">
+    <link rel="canonical" href="http://localhost:9393/cart">
+
+    <title>
+      Your bag
+ &ndash; Nomorels    </title>
+      <meta name="description" content="Reworked denim, club tees and one-of-one thrift finds.">
+
+    <meta property="og:site_name" content="Nomorels">
+<meta property="og:url" content="http://localhost:9393/cart">
+<meta property="og:title" content="Your bag">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Reworked denim, club tees and one-of-one thrift finds.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your bag">
+<meta name="twitter:description" content="Reworked denim, club tees and one-of-one thrift finds.">
+
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Bowlby+One&family=DM+Mono:wght@400;500&family=Shrikhand&display=swap">
+    
+
+    <style>
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --ink: #151311;
+    --muted: #6E675E;
+    --line: #E3DFD7;
+    --accent: #B42318;
+    --accent-contrast: #FFFFFF;
+    --dark: #151311;
+    --dark-text: #F7F6F3;
+    --denim: #22375A;
+
+    --display: "Bowlby One", "Arial Black", Impact, sans-serif;
+    --script: "Shrikhand", "Brush Script MT", cursive;
+    --body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "DM Mono", ui-monospace, Menlo, monospace;
+
+    --gutter: max(16px, 4vw);
+    --page-width: 1440px;
+    --radius: 0px;
+  }
+</style>
+
+    <link href="/nm3ls/assets/theme.css?v=1790347649041" rel="stylesheet" type="text/css" media="all">
+    <link href="/nm3ls/assets/motion.css?v=1790345312321" rel="stylesheet" type="text/css" media="all">
+    <link href="/nm3ls/assets/mobile.css?v=1790345312322" rel="stylesheet" type="text/css" media="all">
+    <script src="/nm3ls/assets/theme.js?v=1790347649042" defer="defer"></script>
+      <script src="/nm3ls/assets/motion.js?v=1790345312322" defer="defer"></script>
+
+    
+  </head>
+
+  <body class="template-cart">
+      <div class="intro" data-intro aria-hidden="true">
+    <div class="intro__grain"></div>
+    <div class="intro__record"></div>
+    <div class="intro__center">
+      <div class="intro__word">
+<span style="--c: 0">N</span><span style="--c: 1">M</span><span style="--c: 2">L</span>      </div>
+      <span class="intro__script">club</span>
+    </div>
+    <div class="intro__bar">
+      <span>Weekly 1/1 drops</span>
+      <span class="intro__count" data-intro-count>000</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var skip = false;
+      try {
+        skip = sessionStorage.getItem('nml-intro') === '1';
+        sessionStorage.setItem('nml-intro', '1');
+      } catch (e) {}
+      if (skip) { root.classList.add('intro-skip'); return; }
+      root.classList.add('intro-on');
+      var intro = document.querySelector('[data-intro]');
+      var count = intro.querySelector('[data-intro-count]');
+      var start = performance.now(), total = 1700;
+      (function tick(now) {
+        var p = Math.min(1, (now - start) / total);
+        count.textContent = String(Math.round(p * p * (3 - 2 * p) * 100)).padStart(3, '0');
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+      function done() {
+        if (root.classList.contains('intro-done')) return;
+        // Skipped early: start the hero entrance now instead of waiting.
+        var t = (performance.now() - start) / 1000;
+        if (t < 2.1) root.style.setProperty('--hero-delay', (t + 0.25).toFixed(2) + 's');
+        root.classList.add('intro-done');
+      }
+      intro.addEventListener('click', done);
+      setTimeout(done, 2300);
+    })();
+  </script>
+
+    <a class="skip-link" href="#MainContent">Skip to content</a>
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <div id="shopify-section-sections--header-group__announcement" class="shopify-section">  <div class="announcement" >
+    <div class="announcement__track">
+            <span >Weekly 1/1 drops</span>
+            <span >Ships in 2–3 business days</span>
+            <span >Hand-picked &amp; reworked</span>
+            <span >@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+            <span aria-hidden="true">Weekly 1/1 drops</span>
+            <span aria-hidden="true">Ships in 2–3 business days</span>
+            <span aria-hidden="true">Hand-picked &amp; reworked</span>
+            <span aria-hidden="true">@nml.club</span>
+    </div>
+  </div>
+
+
+</div><div id="shopify-section-sections--header-group__header" class="shopify-section"><header class="site-header" data-header>
+  <div class="page-width site-header__inner">
+    <div>
+      <nav class="nav" aria-label="Main">
+          <a href="/nm3ls/collections/all">Shop all</a>
+          <a href="/nm3ls/collections/back-to-school-collection">New in</a>
+          <a href="/nm3ls/collections/crimson-slouch-beanie">1/1 Pieces</a>
+          <a href="/nm3ls/collections/weekly-1-1-drops">Weekly drops</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="MobileMenu" data-menu-toggle>Menu</button>
+    </div>
+
+    <a class="logo" href="/nm3ls/" aria-label="Nomorels">
+        <span class="logo__mark">NML</span>
+<span class="logo__script">club</span>    </a>
+
+    <div class="header-actions">
+      <a href="/nm3ls/search" class="hide-mobile">Search</a>
+        <a href="/nm3ls/account/login" class="hide-mobile">Account</a>
+      <a href="/nm3ls/cart" class="cart-link" data-cart-open>
+        Bag <span class="cart-count" data-cart-count>0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="MobileMenu" aria-label="Mobile" data-mobile-menu>
+  <div class="mobile-menu__links">
+      <a href="/nm3ls/collections/all" style="--i: 0">Shop all<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/back-to-school-collection" style="--i: 1">New in<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/crimson-slouch-beanie" style="--i: 2">1/1 Pieces<span aria-hidden="true">→</span></a>
+      <a href="/nm3ls/collections/weekly-1-1-drops" style="--i: 3">Weekly drops<span aria-hidden="true">→</span></a>
+  </div>
+  <div class="mobile-menu__foot">
+    <a href="/nm3ls/search">Search</a>
+      <a href="/nm3ls/account/login">Account</a>
+<a href="https://www.instagram.com/nml.club/" target="_blank" rel="noopener">Instagram</a>  </div>
+</nav>
+
+  <div class="mobile-bar" data-mobile-bar>
+    <a href="/nm3ls/collections/all">Shop all</a>
+      <a href="/nm3ls/collections/crimson-slouch-beanie">1/1 crate</a>
+    <a href="/nm3ls/cart" class="mobile-bar__bag" data-cart-open>Bag <span class="cart-count" data-cart-count>0</span></a>
+  </div>
+
+
+</div>
+
+    <main id="MainContent" role="main" tabindex="-1">
+      <div id="shopify-section-template--cart__main" class="shopify-section"><section class="page-width cart-page" data-cart-page>
+  <div class="page-head" style="padding-top:0"><h1>Your bag</h1></div>
+    <div class="cart-empty"><p>Your bag is empty.</p><a class="btn btn--outline" href="/nm3ls/collections/all">Start digging</a></div>
+</section>
+
+
+</div>
+    </main>
+
+    <div id="shopify-section-sections--footer-group__footer" class="shopify-section"><footer class="site-footer">
+  <div class="page-width">
+    <div class="footer__cols" data-reveal-group>
+      <div>
+        <p class="footer__about">Reworked denim, club tees and one-of-one thrift finds. Picked, cut and finished by hand.</p>
+      </div>
+        <div class="footer__col" >
+              <h3>Shop</h3>
+              <ul>
+                  <li><a href="/nm3ls/collections/all">Shop all</a></li>
+                  <li><a href="/nm3ls/collections/back-to-school-collection">New in</a></li>
+                  <li><a href="/nm3ls/collections/crimson-slouch-beanie">1/1 Pieces</a></li>
+                  <li><a href="/nm3ls/collections/weekly-1-1-drops">Weekly drops</a></li>
+              </ul>
+        </div>
+        <div class="footer__col" >
+              <h3>Help</h3>
+              <ul>
+                  <li><a href="/nm3ls/search">Search</a></li>
+                  <li><a href="/nm3ls/pages/shipping">Shipping</a></li>
+                  <li><a href="/nm3ls/pages/contact">Contact</a></li>
+              </ul>
+        </div>
+        <div class="footer__col" >
+              <h3>Follow</h3>
+              <ul>
+<li><a href="https://www.instagram.com/nml.club/" target="_blank" rel="noopener">Instagram</a></li>              </ul>
+        </div>
+    </div>
+      <div class="footer__giant" data-reveal="chars" data-fit-text aria-hidden="true">
+<span class="char" style="--c: 0">N</span><span class="char" style="--c: 1">O</span><span class="char" style="--c: 2">M</span><span class="char" style="--c: 3">O</span><span class="char" style="--c: 4">R</span><span class="char" style="--c: 5">E</span><span class="char" style="--c: 6">L</span><span class="char" style="--c: 7">S</span>      </div>
+    <div class="footer__legal">
+      <span>&copy; 2026 Nomorels</span>
+      <span class="footer__credit">Built by <a href="https://www.articxsoftware.nl" target="_blank" rel="noopener">Articx</a></span>
+      <span class="footer__policies">
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+</div>
+
+    <div id="shopify-section-cart-drawer" class="shopify-section"><div class="drawer-scrim" data-drawer-scrim></div>
+<aside class="cart-drawer" id="CartDrawer" role="dialog" aria-modal="true" aria-labelledby="CartDrawerTitle" data-cart-drawer>
+  <div class="cart-drawer__head">
+    <h2 id="CartDrawerTitle">Your bag <span class="cart-count" data-cart-count>0</span></h2>
+    <button type="button" class="cart-drawer__close" data-drawer-close>Close</button>
+  </div>
+  <div class="cart-drawer__body" data-cart-body>
+      <div class="cart-empty">
+        <p>Your bag is empty.</p>
+        <a class="btn btn--outline" href="/nm3ls/collections/all">Start digging</a>
+      </div>
+  </div>
+</aside>
+
+
+</div>
+    <div class="toast" id="Toast" role="status" aria-live="polite"></div>
+
+    <script>
+      window.theme = {
+        routes: {
+          root: "/nm3ls/",
+          cartAdd: "/cart/add",
+          cartChange: "/cart/change",
+          cart: "/cart"
+        },
+        cartType: "drawer"
+      };
+    </script>
+  
+<script>window.STATIC_BASE="/nm3ls/"</script><script src="/nm3ls/assets/static-shim.js"></script>
+</body>
+</html>
