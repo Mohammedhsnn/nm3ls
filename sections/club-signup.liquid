@@ -3,7 +3,7 @@
 -%}
 <section class="section club" {{ section.shopify_attributes }}>
   <div class="page-width club__inner">
-    <div>
+    <div data-reveal-group>
       {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow | escape }}</p>{%- endif -%}
       <h2>{{ s.heading | escape }}</h2>
       {%- if s.text != blank -%}<div class="club__text rte">{{ s.text }}</div>{%- endif -%}
@@ -28,7 +28,7 @@
       {%- endform -%}
     </div>
 
-    <div class="mcard" data-member-card aria-hidden="true">
+    <div class="mcard" data-member-card data-reveal="card" aria-hidden="true">
       <div class="mcard__row"><span class="mcard__brand">NML<i>club</i></span><span class="mcard__kind">Member</span></div>
       <div class="mcard__who" data-card-name>Your name here</div>
       <div class="mcard__nums">

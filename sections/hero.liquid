@@ -1,29 +1,33 @@
 {%- liquid
   assign s = section.settings
 -%}
-<section class="hero" {{ section.shopify_attributes }}>
+<section class="hero" data-hero {{ section.shopify_attributes }}>
   <div class="page-width hero__inner">
     <div>
       {%- if s.eyebrow != blank -%}
-        <p class="eyebrow hero__eyebrow"><span class="dot"></span>{{ s.eyebrow | escape }}</p>
+        <p class="eyebrow hero__eyebrow hero-in" style="--d: 0"><span class="dot"></span>{{ s.eyebrow | escape }}</p>
       {%- endif -%}
       <div class="wordmark" aria-hidden="true">
-        <span class="wordmark__big">{{ s.wordmark | escape }}</span>
-        {%- if s.script != blank -%}<span class="wordmark__script">{{ s.script | escape }}</span>{%- endif -%}
+        <span class="wordmark__big">
+          {%- assign chars = s.wordmark | split: '' -%}
+          {%- for c in chars -%}<span class="char" style="--c: {{ forloop.index0 }}">{{ c | escape }}</span>{%- endfor -%}
+        </span>
+        {%- if s.script != blank -%}<span class="wordmark__script hero-stamp">{{ s.script | escape }}</span>{%- endif -%}
       </div>
-      <h1>{{ s.heading | escape }}</h1>
-      {%- if s.text != blank -%}<div class="hero__text rte">{{ s.text }}</div>{%- endif -%}
-      <div class="hero__ctas">
+      <h1 class="hero-in" style="--d: 4">{{ s.heading | escape }}</h1>
+      {%- if s.text != blank -%}<div class="hero__text rte hero-in" style="--d: 5">{{ s.text }}</div>{%- endif -%}
+      <div class="hero__ctas hero-in" style="--d: 6">
         {%- if s.button_label != blank -%}<a class="btn" href="{{ s.button_link | default: routes.all_products_collection_url }}">{{ s.button_label | escape }}</a>{%- endif -%}
         {%- if s.button2_label != blank -%}<a class="btn btn--outline" href="{{ s.button2_link | default: routes.collections_url }}">{{ s.button2_label | escape }}</a>{%- endif -%}
       </div>
     </div>
 
-    <div class="hero__media">
+    <div class="hero__media hero-media-in">
       {%- if s.show_vinyl -%}
-        <div class="vinyl" aria-hidden="true"><div class="vinyl__label"><span>{{ s.vinyl_label | escape }}</span></div></div>
+        <div class="vinyl" data-vinyl aria-hidden="true"><div class="vinyl__label"><span>{{ s.vinyl_label | escape }}</span></div></div>
       {%- endif -%}
       <figure class="hero__frame">
+        <div class="hero__img" data-parallax="0.08">
         {%- if s.image != blank -%}
           {%- assign hero_alt = s.image.alt | default: s.heading -%}
           {{ s.image | image_url: width: 1200 | image_tag:
@@ -35,10 +39,11 @@
         {%- else -%}
           {{ 'lifestyle-1' | placeholder_svg_tag }}
         {%- endif -%}
+        </div>
         <figcaption class="hero__caption"><span>{{ s.caption_left | escape }}</span><span>{{ s.caption_right | escape }}</span></figcaption>
       </figure>
       {%- if s.sticker_big != blank -%}
-        <div class="hero__sticker" aria-hidden="true"><div><b>{{ s.sticker_big | escape }}</b><small>{{ s.sticker_small | escape | newline_to_br }}</small></div></div>
+        <div class="hero__sticker" data-spin-on-scroll aria-hidden="true"><div><b>{{ s.sticker_big | escape }}</b><small>{{ s.sticker_small | escape | newline_to_br }}</small></div></div>
       {%- endif -%}
     </div>
   </div>

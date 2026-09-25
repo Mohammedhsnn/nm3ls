@@ -36,11 +36,33 @@
     "crate": {
       "type": "one-of-one-crate",
       "blocks": {
-        "denim": { "type": "filter", "settings": { "label": "Denim", "keywords": "jort, short, jean, denim" } },
-        "zips": { "type": "filter", "settings": { "label": "Zip ups", "keywords": "zip, hoodie, jacket" } },
-        "shoes": { "type": "filter", "settings": { "label": "Footwear", "keywords": "vans, shoe, sneaker" } }
+        "denim": {
+          "type": "filter",
+          "settings": {
+            "label": "Denim",
+            "keywords": "jort, short, jean, denim"
+          }
+        },
+        "zips": {
+          "type": "filter",
+          "settings": {
+            "label": "Zip ups",
+            "keywords": "zip, hoodie, jacket"
+          }
+        },
+        "shoes": {
+          "type": "filter",
+          "settings": {
+            "label": "Footwear",
+            "keywords": "vans, shoe, sneaker"
+          }
+        }
       },
-      "block_order": ["denim", "zips", "shoes"],
+      "block_order": [
+        "denim",
+        "zips",
+        "shoes"
+      ],
       "settings": {
         "heading": "The 1/1 crate",
         "script": "one each",
@@ -64,11 +86,33 @@
     "records": {
       "type": "feature-product",
       "blocks": {
-        "cat": { "type": "spec", "settings": { "label": "Cat. no.", "value": "NML-REC-01" } },
-        "fit": { "type": "spec", "settings": { "label": "Fit", "value": "Oversized" } },
-        "care": { "type": "spec", "settings": { "label": "Care", "value": "Wash inside out, low" } }
+        "cat": {
+          "type": "spec",
+          "settings": {
+            "label": "Cat. no.",
+            "value": "NML-REC-01"
+          }
+        },
+        "fit": {
+          "type": "spec",
+          "settings": {
+            "label": "Fit",
+            "value": "Oversized"
+          }
+        },
+        "care": {
+          "type": "spec",
+          "settings": {
+            "label": "Care",
+            "value": "Wash inside out, low"
+          }
+        }
       },
-      "block_order": ["cat", "fit", "care"],
+      "block_order": [
+        "cat",
+        "fit",
+        "care"
+      ],
       "settings": {
         "product": "records-tee",
         "heading": "NML Club Records",
@@ -88,7 +132,36 @@
         "success": "You're in. Watch your inbox for the next drop.",
         "tier": "Crate digger"
       }
+    },
+    "tape_top": {
+      "type": "tape-marquee",
+      "settings": {
+        "text": "NML Club, 1/1 only, Weekly drops, Hand-picked",
+        "text_2": "Reworked denim, Club tees, Gone when it's gone",
+        "style": "accent",
+        "tilt": 3,
+        "speed": 2
+      }
+    },
+    "tape_bottom": {
+      "type": "tape-marquee",
+      "settings": {
+        "text": "Join the club, Members see it first, NML Club Records",
+        "text_2": "",
+        "style": "outline",
+        "tilt": 0,
+        "speed": 1
+      }
     }
   },
-  "order": ["hero", "new_in", "crate", "weekly", "records", "club"]
+  "order": [
+    "hero",
+    "tape_top",
+    "new_in",
+    "crate",
+    "weekly",
+    "records",
+    "tape_bottom",
+    "club"
+  ]
 }

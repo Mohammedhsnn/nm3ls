@@ -16,11 +16,11 @@
 <section class="section crate" data-crate id="crate-{{ section.id }}" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="section-head">
-      <h2>{{ s.heading | escape }}{% if s.script != blank %}<em>{{ s.script | escape }}</em>{% endif %}</h2>
-      {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
+      <h2 data-reveal="clip">{{ s.heading | escape }}{% if s.script != blank %}<em>{{ s.script | escape }}</em>{% endif %}</h2>
+      {%- if s.text != blank -%}<p data-reveal="up" style="--i: 2">{{ s.text | escape }}</p>{%- endif -%}
     </div>
 
-    <div class="crate__bar">
+    <div class="crate__bar" data-reveal="up">
       <div class="chips" role="group" aria-label="Filter pieces">
         <button type="button" class="chip" data-filter="" aria-pressed="true">All</button>
         {%- for block in section.blocks -%}
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="rack" tabindex="0" aria-label="{{ s.heading | escape }}, scroll sideways" data-rack>
+    <div class="rack" tabindex="0" aria-label="{{ s.heading | escape }}, scroll sideways" data-rack data-reveal-group>
       {%- if col != blank -%}
         {%- for product in col.products limit: s.limit -%}
           {% render 'product-card', product: product, show_catno: true, catno: forloop.index %}

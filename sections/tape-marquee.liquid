@@ -1,0 +1,57 @@
+{%- comment -%}
+  Two crossed "caution tape" bands with scrolling text. The bands drift on
+  their own and speed up with scroll velocity (assets/motion.js). Without JS
+  or with reduced motion they sit still.
+{%- endcomment -%}
+{%- liquid
+  assign s = section.settings
+  assign words_a = s.text | split: ','
+  assign words_b = s.text_2 | split: ','
+-%}
+<section class="tapes tapes--{{ s.style }}" style="--tape-tilt: {{ s.tilt }}deg" {{ section.shopify_attributes }}>
+  <div class="tape tape--a" data-marquee data-speed="{{ s.speed }}" data-dir="-1" aria-label="{{ s.text | escape }}">
+    <div class="tape__track" data-marquee-track aria-hidden="true">
+      {%- for i in (1..4) -%}
+        {%- for w in words_a -%}
+          <span class="tape__item">{{ w | strip | escape }}</span><span class="tape__star">✦</span>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+  {%- if s.text_2 != blank -%}
+    <div class="tape tape--b" data-marquee data-speed="{{ s.speed }}" data-dir="1" aria-hidden="true">
+      <div class="tape__track" data-marquee-track>
+        {%- for i in (1..4) -%}
+          {%- for w in words_b -%}
+            <span class="tape__item">{{ w | strip | escape }}</span><span class="tape__star">●</span>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Tape marquee",
+  "class": "section-tapes",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Front tape", "info": "Separate phrases with commas", "default": "NML Club, 1/1 only, Weekly drops, Hand-picked" },
+    { "type": "text", "id": "text_2", "label": "Back tape", "info": "Leave empty for a single tape", "default": "Reworked denim, Club tees, Gone when it's gone" },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Colors",
+      "options": [
+        { "value": "accent", "label": "Accent + dark" },
+        { "value": "dark", "label": "Dark + light" },
+        { "value": "outline", "label": "Outline text" }
+      ],
+      "default": "accent"
+    },
+    { "type": "range", "id": "tilt", "label": "Tilt", "min": 0, "max": 6, "step": 1, "unit": "°", "default": 3 },
+    { "type": "range", "id": "speed", "label": "Speed", "min": 1, "max": 5, "step": 1, "default": 2 }
+  ],
+  "presets": [{ "name": "Tape marquee" }]
+}
+{% endschema %}

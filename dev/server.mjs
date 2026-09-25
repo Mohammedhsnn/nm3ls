@@ -481,7 +481,7 @@ function baseGlobals(url, extra = {}) {
       account_login_url: '/account/login', account_register_url: '/account/register', account_logout_url: '/account/logout',
       account_addresses_url: '/account/addresses'
     },
-    request: { locale: { iso_code: 'en' }, origin: `http://localhost:${PORT}`, path: url.pathname, page_type: extra.page_type || 'index', posted_form: url.searchParams.get('customer_posted') === 'true' ? 'customer' : null },
+    request: { design_mode: false, locale: { iso_code: 'en' }, origin: `http://localhost:${PORT}`, path: url.pathname, page_type: extra.page_type || 'index', posted_form: url.searchParams.get('customer_posted') === 'true' ? 'customer' : null },
     cart: cartObject(catalog),
     customer: null,
     collections: catalog.collections,
@@ -540,10 +540,21 @@ const server = http.createServer(async (req, res) => {
       req.on('close', () => reloadClients.delete(res));
       return;
     }
+    // Dev only: ?motion=1 previews animations even when the OS asks for reduced
+    // motion (sets a cookie; ?motion=0 turns it off again).
+    if (url.searchParams.has('motion')) {
+      const on = url.searchParams.get('motion') === '1';
+      url.searchParams.delete('motion');
+      return send(res, 302, '', 'text/plain', { Location: url.pathname + url.search, 'Set-Cookie': `force_motion=${on ? 1 : 0}; Path=/` });
+    }
+    const forceMotion = /(?:^|;\s*)force_motion=1/.test(req.headers.cookie || '');
+
     if (p.startsWith('/assets/')) {
       const file = path.join(THEME, 'assets', path.basename(p));
       if (!fs.existsSync(file)) return send(res, 404, 'Not found', 'text/plain');
-      return send(res, 200, fs.readFileSync(file), MIME[path.extname(file)] || 'application/octet-stream');
+      let body = fs.readFileSync(file);
+      if (forceMotion && file.endsWith('.css')) body = body.toString().replaceAll('prefers-reduced-motion: reduce', 'prefers-reduced-motion: dev-forced');
+      return send(res, 200, body, MIME[path.extname(file)] || 'application/octet-stream');
     }
 
     // Product data for the static export's demo cart (dev/static-shim.js).
@@ -685,6 +696,9 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (!out) out = await renderPage({ template: '404', status: 404, globals: baseGlobals(url, { page_type: '404', page_title: 'Not found' }) });
+    if (forceMotion) {
+      out.html = out.html.replace('<head>', `<head><script>(function(){var m=window.matchMedia.bind(window);window.matchMedia=function(q){return /reduced-motion/.test(q)?{matches:false,media:q,addEventListener:function(){},removeEventListener:function(){},addListener:function(){},removeListener:function(){}}:m(q)}})()</script>`);
+    }
     send(res, out.status, out.html);
   } catch (err) {
     console.error(`  ✖ ${req.method} ${req.url}\n    ${err.message}`);

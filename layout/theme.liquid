@@ -1,7 +1,25 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+{%- liquid
+  assign html_class = 'no-js'
+  if settings.enable_animations
+    assign html_class = html_class | append: ' motion'
+  endif
+  if settings.show_grain
+    assign html_class = html_class | append: ' grain'
+  endif
+  if request.design_mode
+    assign html_class = html_class | append: ' design-mode'
+  endif
+-%}
+<html lang="{{ request.locale.iso_code }}" class="{{ html_class }}"{% if settings.custom_cursor %} data-cursor{% endif %}>
   <head>
     <meta charset="utf-8">
+    <script>
+      // Enable JS-only styles, and if motion.js never runs, reveal everything
+      // after 3s so scroll-hidden content can't stay hidden.
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      setTimeout(function () { if (!window.__nmlMotion) document.documentElement.classList.add('motion-fallback'); }, 3000);
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="{{ settings.color_background }}">
@@ -30,13 +48,19 @@
 
     {% render 'css-variables' %}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'motion.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    {%- if settings.enable_animations -%}
+      <script src="{{ 'motion.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
     {{ content_for_header }}
   </head>
 
   <body class="template-{{ template.name | handle }}">
+    {% render 'intro' %}
     <a class="skip-link" href="#MainContent">Skip to content</a>
+    {%- if settings.enable_animations -%}<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>{%- endif -%}
 
     {% sections 'header-group' %}
 

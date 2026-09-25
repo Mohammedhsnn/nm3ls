@@ -8,7 +8,7 @@
 -%}
 <section class="page-width" data-product-section>
   <div class="product">
-    <div class="product__gallery">
+    <div class="product__gallery" data-reveal-group>
       {%- for media in product.media -%}
         {%- if media.media_type == 'image' -%}
           {%- liquid
@@ -32,7 +32,7 @@
       {%- endfor -%}
     </div>
 
-    <div class="product__info">
+    <div class="product__info" data-reveal="up">
       {%- if product.type != blank -%}<p class="eyebrow">{{ product.type | escape }}</p>{%- endif -%}
       <h1 class="product__title">{{ product.title | escape }}</h1>
       <div class="product__price" data-product-price>
@@ -108,8 +108,8 @@
   {%- if rel != blank and rel.products_count > 1 -%}
     <section class="section" style="padding-top:0">
       <div class="page-width">
-        <div class="section-head"><h2>More from<em>{{ rel.title | escape }}</em></h2></div>
-        <div class="grid" style="--cols: 4">
+        <div class="section-head"><h2 data-reveal="clip">More from<em>{{ rel.title | escape }}</em></h2></div>
+        <div class="grid" style="--cols: 4" data-reveal-group>
           {%- assign shown = 0 -%}
           {%- for p in rel.products -%}
             {%- if p.id != product.id and shown < 4 -%}

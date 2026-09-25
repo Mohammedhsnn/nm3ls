@@ -10,23 +10,92 @@
   {
     "name": "Colors",
     "settings": [
-      { "type": "color", "id": "color_background", "label": "Page background", "default": "#F7F6F3" },
-      { "type": "color", "id": "color_surface", "label": "Cards and panels", "default": "#FFFFFF" },
-      { "type": "color", "id": "color_text", "label": "Text", "default": "#151311" },
-      { "type": "color", "id": "color_muted", "label": "Secondary text", "default": "#6E675E" },
-      { "type": "color", "id": "color_border", "label": "Borders", "default": "#E3DFD7" },
-      { "type": "color", "id": "color_accent", "label": "Accent", "info": "Buttons, SOLD stamps, 1 of 1 flags", "default": "#B42318" },
-      { "type": "color", "id": "color_accent_text", "label": "Text on accent", "default": "#FFFFFF" },
-      { "type": "color", "id": "color_dark", "label": "Dark sections", "default": "#151311" },
-      { "type": "color", "id": "color_dark_text", "label": "Text on dark sections", "default": "#F7F6F3" },
-      { "type": "color", "id": "color_denim", "label": "Feature band", "default": "#22375A" }
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Page background",
+        "default": "#F7F6F3"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Cards and panels",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#151311"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Secondary text",
+        "default": "#6E675E"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Borders",
+        "default": "#E3DFD7"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "info": "Buttons, SOLD stamps, 1 of 1 flags",
+        "default": "#B42318"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_text",
+        "label": "Text on accent",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark sections",
+        "default": "#151311"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_text",
+        "label": "Text on dark sections",
+        "default": "#F7F6F3"
+      },
+      {
+        "type": "color",
+        "id": "color_denim",
+        "label": "Feature band",
+        "default": "#22375A"
+      }
     ]
   },
   {
     "name": "Layout",
     "settings": [
-      { "type": "range", "id": "page_width", "label": "Page width", "min": 1000, "max": 1600, "step": 20, "unit": "px", "default": 1440 },
-      { "type": "range", "id": "radius", "label": "Corner radius", "min": 0, "max": 16, "step": 2, "unit": "px", "default": 0 }
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "default": 1440
+      },
+      {
+        "type": "range",
+        "id": "radius",
+        "label": "Corner radius",
+        "min": 0,
+        "max": 16,
+        "step": 2,
+        "unit": "px",
+        "default": 0
+      }
     ]
   },
   {
@@ -37,12 +106,81 @@
         "id": "cart_type",
         "label": "Cart type",
         "options": [
-          { "value": "drawer", "label": "Drawer" },
-          { "value": "page", "label": "Page" }
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
         ],
         "default": "drawer"
       },
-      { "type": "text", "id": "cart_note_text", "label": "Note under checkout", "default": "Shipping and taxes calculated at checkout. All 1/1 sales are final." }
+      {
+        "type": "text",
+        "id": "cart_note_text",
+        "label": "Note under checkout",
+        "default": "Shipping and taxes calculated at checkout. All 1/1 sales are final."
+      }
+    ]
+  },
+  {
+    "name": "Motion",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Intro"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_intro",
+        "label": "Show intro on first visit",
+        "info": "Plays once per visit. Never shown in the theme editor or to visitors who turned on reduced motion.",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "intro_word",
+        "label": "Intro word",
+        "default": "NML"
+      },
+      {
+        "type": "text",
+        "id": "intro_script",
+        "label": "Intro script word",
+        "default": "club"
+      },
+      {
+        "type": "text",
+        "id": "intro_tagline",
+        "label": "Intro tagline",
+        "default": "Weekly 1/1 drops"
+      },
+      {
+        "type": "header",
+        "content": "Scrolling"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_animations",
+        "label": "Scroll animations",
+        "info": "Reveals, parallax, tape speed-up and hide-on-scroll header",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_cursor",
+        "label": "Custom cursor",
+        "info": "Desktop only. Shows \"View\" over products.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_grain",
+        "label": "Film grain overlay",
+        "default": true
+      }
     ]
   },
   {
@@ -55,20 +193,38 @@
         "info": "Products with this tag, or in a collection whose title contains \"1/1\", get the 1 of 1 label.",
         "default": "1of1"
       },
-      { "type": "text", "id": "shipping_note", "label": "Shipping note", "default": "Ships within 2–3 business days" }
+      {
+        "type": "text",
+        "id": "shipping_note",
+        "label": "Shipping note",
+        "default": "Ships within 2–3 business days"
+      }
     ]
   },
   {
     "name": "Social",
     "settings": [
-      { "type": "text", "id": "social_instagram", "label": "Instagram URL", "default": "https://www.instagram.com/nml.club/" },
-      { "type": "text", "id": "social_tiktok", "label": "TikTok URL" }
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://www.instagram.com/nml.club/"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      }
     ]
   },
   {
     "name": "Favicon",
     "settings": [
-      { "type": "image_picker", "id": "favicon", "label": "Favicon" }
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
     ]
   }
 ]

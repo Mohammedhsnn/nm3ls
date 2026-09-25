@@ -1,0 +1,52 @@
+{%- comment -%}
+  First-visit intro. Plays once per browser session, never in the theme editor
+  and never with reduced motion. Pure CSS timing, so it always clears itself
+  even if theme scripts fail; the inline script only skips repeats, runs the
+  counter and lets a click dismiss it early.
+{%- endcomment -%}
+{%- if settings.show_intro -%}{%- unless request.design_mode -%}
+  <div class="intro" data-intro aria-hidden="true">
+    <div class="intro__grain"></div>
+    <div class="intro__record"></div>
+    <div class="intro__center">
+      <div class="intro__word">
+        {%- assign chars = settings.intro_word | default: 'NML' | split: '' -%}
+        {%- for c in chars -%}<span style="--c: {{ forloop.index0 }}">{{ c | escape }}</span>{%- endfor -%}
+      </div>
+      <span class="intro__script">{{ settings.intro_script | escape }}</span>
+    </div>
+    <div class="intro__bar">
+      <span>{{ settings.intro_tagline | escape }}</span>
+      <span class="intro__count" data-intro-count>000</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var skip = false;
+      try {
+        skip = sessionStorage.getItem('nml-intro') === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        sessionStorage.setItem('nml-intro', '1');
+      } catch (e) {}
+      if (skip) { root.classList.add('intro-skip'); return; }
+      root.classList.add('intro-on');
+      var intro = document.querySelector('[data-intro]');
+      var count = intro.querySelector('[data-intro-count]');
+      var start = performance.now(), total = 1700;
+      (function tick(now) {
+        var p = Math.min(1, (now - start) / total);
+        count.textContent = String(Math.round(p * p * (3 - 2 * p) * 100)).padStart(3, '0');
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+      function done() {
+        if (root.classList.contains('intro-done')) return;
+        // Skipped early: start the hero entrance now instead of waiting.
+        var t = (performance.now() - start) / 1000;
+        if (t < 2.1) root.style.setProperty('--hero-delay', (t + 0.25).toFixed(2) + 's');
+        root.classList.add('intro-done');
+      }
+      intro.addEventListener('click', done);
+      setTimeout(done, 2300);
+    })();
+  </script>
+{%- endunless -%}{%- endif -%}

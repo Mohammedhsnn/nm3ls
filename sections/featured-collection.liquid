@@ -5,13 +5,13 @@
 <section class="section" {{ section.shopify_attributes }}>
   <div class="page-width">
     <div class="section-head">
-      <h2>{{ s.heading | escape }}{% if s.script != blank %}<em>{{ s.script | escape }}</em>{% endif %}</h2>
-      <div>
+      <h2 data-reveal="clip">{{ s.heading | escape }}{% if s.script != blank %}<em>{{ s.script | escape }}</em>{% endif %}</h2>
+      <div data-reveal="up" style="--i: 2">
         {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
         {%- if col != blank and s.show_view_all -%}<p style="margin-top:12px"><a class="link" href="{{ col.url }}">View all {{ col.products_count }}</a></p>{%- endif -%}
       </div>
     </div>
-    <div class="grid" style="--cols: {{ s.columns }}">
+    <div class="grid" style="--cols: {{ s.columns }}" data-reveal-group>
       {%- if col != blank and col.products_count > 0 -%}
         {%- for product in col.products limit: s.limit -%}
           {% render 'product-card', product: product %}

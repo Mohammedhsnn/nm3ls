@@ -60,7 +60,26 @@ You can also connect this GitHub repo under **Online Store → Themes → Add th
 | 1/1 crate | Side-scrolling rack of a collection, filter chips (blocks), hide-sold toggle, live count |
 | Feature product | Record-sleeve band for one product, with spec lines |
 | Club signup | Real Shopify newsletter signup (tags customers `newsletter,nml-club`) with a live member card |
+| Tape marquee | Crossed scrolling tapes; front/back text, colors, tilt and speed |
 | Cart drawer | Slide-out bag via the Ajax Cart API; 1/1 pieces are fixed at quantity 1 |
+
+## Motion
+
+Theme settings → **Motion** switches each part on or off:
+
+- **Intro**: black screen, "NML" rises letter by letter, "club" stamps in, a counter
+  runs to 100 and the screen wipes up. Plays once per browser session; click to skip.
+- **Scroll animations**: headings clip in, cards stagger up, photos parallax, records
+  spin faster while scrolling, the footer wordmark rises letter by letter, a progress
+  bar runs along the top and the header hides on scroll down.
+- **Tape marquee** section: crossed tapes that speed up and reverse with scroll.
+- **Custom cursor** (desktop): says "View" over products, "Sold" over sold pieces.
+- **Film grain** overlay.
+
+None of it runs in the theme editor or for visitors with reduced motion turned on in
+their OS; if `motion.js` fails to load, everything is shown after 3 seconds. Locally,
+open http://localhost:9292/?motion=1 to preview animations on a Mac with reduced
+motion on (`?motion=0` turns that off).
 
 ## 1 of 1 pieces
 

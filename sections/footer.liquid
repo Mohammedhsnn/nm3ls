@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="page-width">
-    <div class="footer__cols">
+    <div class="footer__cols" data-reveal-group>
       <div>
         <p class="footer__about">{{ section.settings.about | escape }}</p>
       </div>
@@ -25,7 +25,10 @@
       {%- endfor -%}
     </div>
     {%- if section.settings.giant != blank -%}
-      <div class="footer__giant" aria-hidden="true">{{ section.settings.giant | escape }}</div>
+      <div class="footer__giant" data-reveal="chars" aria-hidden="true">
+        {%- assign chars = section.settings.giant | split: '' -%}
+        {%- for c in chars -%}<span class="char" style="--c: {{ forloop.index0 }}">{{ c | escape }}</span>{%- endfor -%}
+      </div>
     {%- endif -%}
     <div class="footer__legal">
       <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>

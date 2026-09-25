@@ -17,7 +17,14 @@
       "cart_type": "drawer",
       "one_of_one_tag": "1of1",
       "shipping_note": "Ships within 2–3 business days",
-      "social_instagram": "https://www.instagram.com/nml.club/"
+      "social_instagram": "https://www.instagram.com/nml.club/",
+      "show_intro": true,
+      "intro_word": "NML",
+      "intro_script": "club",
+      "intro_tagline": "Weekly 1/1 drops",
+      "enable_animations": true,
+      "custom_cursor": true,
+      "show_grain": true
     }
   }
 }

@@ -1,6 +1,6 @@
 <section class="page-width">
   <div class="page-head"><h1>{{ section.settings.heading | escape }}</h1></div>
-  <div class="grid collection-list" style="--cols: 3; padding-bottom: clamp(56px, 7vw, 104px)">
+  <div class="grid collection-list" data-reveal-group style="--cols: 3; padding-bottom: clamp(56px, 7vw, 104px)">
     {%- for col in collections -%}
       {%- if col.products_count > 0 and col.handle != 'frontpage' -%}
         <a class="card" href="{{ col.url }}">

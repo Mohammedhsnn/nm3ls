@@ -5,7 +5,7 @@
 -%}
 <section class="section feature" {{ section.shopify_attributes }}>
   <div class="page-width feature__inner">
-    <div>
+    <div data-reveal-group>
       <h2>{{ s.heading | escape }}{% if s.subheading != blank %}<small>{{ s.subheading | escape }}</small>{% endif %}</h2>
       {%- if s.text != blank -%}<div class="feature__text rte">{{ s.text }}</div>{%- endif -%}
       <ul class="specs">
@@ -21,8 +21,8 @@
       {%- endif -%}
     </div>
     <div class="feature__stage">
-      <div class="vinyl" aria-hidden="true"><div class="vinyl__label"><span>{{ s.vinyl_label | escape }}</span></div></div>
-      <div class="feature__jacket">
+      <div class="vinyl" data-vinyl aria-hidden="true"><div class="vinyl__label"><span>{{ s.vinyl_label | escape }}</span></div></div>
+      <div class="feature__jacket" data-parallax="-0.06" data-reveal="tilt">
         {%- if img != blank -%}
           {{ img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 860px) 360px, 70vw', alt: p.title }}
         {%- else -%}

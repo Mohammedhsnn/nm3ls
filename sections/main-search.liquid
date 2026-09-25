@@ -12,7 +12,7 @@
     {%- paginate search.results by 24 -%}
       <p class="eyebrow" style="margin-bottom:24px">{{ search.results_count }} {{ search.results_count | pluralize: 'result', 'results' }} for “{{ search.terms | escape }}”</p>
       {%- if search.results_count > 0 -%}
-        <div class="grid" style="--cols: 4">
+        <div class="grid" style="--cols: 4" data-reveal-group>
           {%- for item in search.results -%}
             {%- if item.object_type == 'product' -%}
               {% render 'product-card', product: item %}

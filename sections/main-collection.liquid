@@ -3,7 +3,7 @@
 -%}
 <section class="page-width">
   <div class="collection-hero">
-    <h1>{{ collection.title | escape }}</h1>
+    <h1 data-reveal="clip">{{ collection.title | escape }}</h1>
     {%- if collection.description != blank -%}<div class="rte">{{ collection.description }}</div>{%- endif -%}
   </div>
 
@@ -20,7 +20,7 @@
     </div>
 
     {%- if collection.products.size > 0 -%}
-      <div class="grid" style="--cols: {{ section.settings.columns }}">
+      <div class="grid" style="--cols: {{ section.settings.columns }}" data-reveal-group>
         {%- for product in collection.products -%}
           {%- liquid
             assign load = 'lazy'
