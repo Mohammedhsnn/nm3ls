@@ -11,7 +11,7 @@
         {%- if col != blank and s.show_view_all -%}<p style="margin-top:12px"><a class="link" href="{{ col.url }}">View all {{ col.products_count }}</a></p>{%- endif -%}
       </div>
     </div>
-    <div class="grid" style="--cols: {{ s.columns }}" data-reveal-group>
+    <div class="grid{% if s.mobile_swipe %} grid--swipe{% endif %}" style="--cols: {{ s.columns }}" data-reveal-group{% if s.mobile_swipe %} data-swipe{% endif %}>
       {%- if col != blank and col.products_count > 0 -%}
         {%- for product in col.products limit: s.limit -%}
           {% render 'product-card', product: product %}
@@ -25,6 +25,10 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
+    {%- if s.mobile_swipe -%}
+      <div class="swipe-bar swipe-bar--mobile" aria-hidden="true"><span data-swipe-thumb></span></div>
+      {%- if col != blank -%}<a class="btn btn--outline btn--full swipe-all" href="{{ col.url }}">View all {{ col.products_count }}</a>{%- endif -%}
+    {%- endif -%}
   </div>
 </section>
 
@@ -39,7 +43,8 @@
     { "type": "collection", "id": "collection", "label": "Collection" },
     { "type": "range", "id": "limit", "label": "Products to show", "min": 2, "max": 16, "step": 1, "default": 8 },
     { "type": "range", "id": "columns", "label": "Columns on desktop", "min": 2, "max": 5, "step": 1, "default": 4 },
-    { "type": "checkbox", "id": "show_view_all", "label": "Show 'View all' link", "default": true }
+    { "type": "checkbox", "id": "show_view_all", "label": "Show 'View all' link", "default": true },
+    { "type": "checkbox", "id": "mobile_swipe", "label": "Swipe row on phones", "info": "Shows the products as a swipeable row instead of a long grid", "default": true }
   ],
   "presets": [{ "name": "Featured collection" }]
 }

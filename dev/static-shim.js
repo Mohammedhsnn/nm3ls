@@ -80,7 +80,7 @@
         document.querySelector('[data-drawer-scrim]').classList.add('is-open');
       }
     }
-    document.querySelectorAll('.site-header [data-cart-count]').forEach((el) => { el.textContent = count(); });
+    document.querySelectorAll('.site-header [data-cart-count], .mobile-bar [data-cart-count]').forEach((el) => { el.textContent = count(); });
     paintCartPage();
   }
 
@@ -115,7 +115,7 @@
       if (v.one && (line ? line.quantity : 0) + qty > 1) return json(422, { description: `All 1 ${v.product_title} are in your cart.` });
       if (line) line.quantity += qty; else lines.push({ id: String(body.id), quantity: qty });
       save();
-      setTimeout(() => document.querySelectorAll('.site-header [data-cart-count]').forEach((el) => { el.textContent = count(); }));
+      setTimeout(() => document.querySelectorAll('.site-header [data-cart-count], .mobile-bar [data-cart-count]').forEach((el) => { el.textContent = count(); }));
       return json(200, { id: body.id, quantity: qty, sections: sections() });
     }
     if (/\/cart\/change(\.js)?$/.test(url)) {
@@ -129,7 +129,7 @@
       if (qty === 0) lines.splice(idx, 1); else lines[idx].quantity = qty;
       save();
       if (document.querySelector('[data-cart-page]')) { paintCartPage(); return json(200, { sections: sections() }); }
-      setTimeout(() => document.querySelectorAll('.site-header [data-cart-count]').forEach((el) => { el.textContent = count(); }));
+      setTimeout(() => document.querySelectorAll('.site-header [data-cart-count], .mobile-bar [data-cart-count]').forEach((el) => { el.textContent = count(); }));
       return json(200, { item_count: count(), sections: sections() });
     }
     return nativeFetch(input, init);

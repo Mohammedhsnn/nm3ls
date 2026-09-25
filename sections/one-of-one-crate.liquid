@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="rack" tabindex="0" aria-label="{{ s.heading | escape }}, scroll sideways" data-rack data-reveal-group>
+    <div class="rack" tabindex="0" aria-label="{{ s.heading | escape }}, scroll sideways" data-rack data-swipe data-reveal-group>
       {%- if col != blank -%}
         {%- for product in col.products limit: s.limit -%}
           {% render 'product-card', product: product, show_catno: true, catno: forloop.index %}
@@ -44,6 +44,7 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
+    <div class="swipe-bar" aria-hidden="true"><span data-swipe-thumb></span></div>
     <p class="rack__empty" data-rack-empty hidden>Nothing left in this bin. Check back after the next weekly drop.</p>
 
     {%- if col != blank -%}

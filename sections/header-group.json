@@ -5,18 +5,55 @@
     "announcement": {
       "type": "announcement-bar",
       "blocks": {
-        "m1": { "type": "message", "settings": { "text": "Weekly 1/1 drops" } },
-        "m2": { "type": "message", "settings": { "text": "Ships in 2–3 business days" } },
-        "m3": { "type": "message", "settings": { "text": "Hand-picked & reworked" } },
-        "m4": { "type": "message", "settings": { "text": "@nml.club" } }
+        "m1": {
+          "type": "message",
+          "settings": {
+            "text": "Weekly 1/1 drops"
+          }
+        },
+        "m2": {
+          "type": "message",
+          "settings": {
+            "text": "Ships in 2–3 business days"
+          }
+        },
+        "m3": {
+          "type": "message",
+          "settings": {
+            "text": "Hand-picked & reworked"
+          }
+        },
+        "m4": {
+          "type": "message",
+          "settings": {
+            "text": "@nml.club"
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3", "m4"],
-      "settings": { "scroll": true }
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "settings": {
+        "scroll": true
+      }
     },
     "header": {
       "type": "header",
-      "settings": { "wordmark": "NML", "script": "club", "menu": "main-menu" }
+      "settings": {
+        "wordmark": "NML",
+        "script": "club",
+        "menu": "main-menu",
+        "mobile_bar": true,
+        "mobile_bar_label": "1/1 crate",
+        "mobile_bar_link": "shopify://collections/crimson-slouch-beanie"
+      }
     }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }

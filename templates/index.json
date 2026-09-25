@@ -30,7 +30,8 @@
         "collection": "all",
         "limit": 8,
         "columns": 4,
-        "show_view_all": true
+        "show_view_all": true,
+        "mobile_swipe": true
       }
     },
     "crate": {
@@ -80,7 +81,8 @@
         "collection": "weekly-1-1-drops",
         "limit": 4,
         "columns": 4,
-        "show_view_all": true
+        "show_view_all": true,
+        "mobile_swipe": true
       }
     },
     "records": {

@@ -41,7 +41,7 @@
       // sideways-scrolling rack sit off-screen horizontally, and a clip-path
       // reveal is fully clipped (so never "visible") until it's revealed.
       let trigger = el;
-      if (el.parentElement && el.parentElement.matches('[data-rack], .rack')) trigger = el.parentElement;
+      if (el.parentElement && el.parentElement.matches('[data-rack], .rack, [data-swipe], [data-gallery]')) trigger = el.parentElement;
       else if (el.dataset.reveal === 'clip') trigger = el.parentElement || el;
       if (!triggers.has(trigger)) triggers.set(trigger, []);
       triggers.get(trigger).push(el);

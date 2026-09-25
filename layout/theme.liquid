@@ -49,6 +49,7 @@
     {% render 'css-variables' %}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'motion.css' | asset_url | stylesheet_tag }}
+    {{ 'mobile.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
     {%- if settings.enable_animations -%}
       <script src="{{ 'motion.js' | asset_url }}" defer="defer"></script>

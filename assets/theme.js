@@ -15,15 +15,67 @@
     toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2800);
   }
 
-  /* ---------- mobile menu ---------- */
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-menu-toggle]');
-    if (!btn) return;
-    const menu = document.getElementById(btn.getAttribute('aria-controls'));
-    const open = btn.getAttribute('aria-expanded') !== 'true';
+  /* ---------- mobile menu (full-screen overlay) ---------- */
+  function setMenu(open) {
+    const btn = $('[data-menu-toggle]');
+    const menu = $('[data-mobile-menu]');
+    if (!btn || !menu) return;
     btn.setAttribute('aria-expanded', String(open));
     btn.textContent = open ? 'Close' : 'Menu';
-    if (menu) menu.hidden = !open;
+    menu.classList.toggle('is-open', open);
+    document.documentElement.classList.toggle('menu-open', open);
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-menu-toggle]')) {
+      setMenu($('[data-menu-toggle]').getAttribute('aria-expanded') !== 'true');
+    } else if (e.target.closest('[data-mobile-menu] a')) {
+      setMenu(false);
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.documentElement.classList.contains('menu-open')) setMenu(false);
+  });
+  window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+
+  /* ---------- swipe rows: progress thumb under sideways scrollers ---------- */
+  $$('[data-swipe]').forEach((row) => {
+    const bar = row.parentElement.querySelector('[data-swipe-thumb]');
+    if (!bar) return;
+    const update = () => {
+      const visible = row.clientWidth / row.scrollWidth;
+      const max = row.scrollWidth - row.clientWidth;
+      bar.parentElement.hidden = visible >= 0.999;
+      bar.style.width = (visible * 100).toFixed(2) + '%';
+      bar.style.transform = `translateX(${max > 0 ? ((row.scrollLeft / max) * (1 / visible - 1) * 100).toFixed(2) : 0}%)`;
+    };
+    row.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    new MutationObserver(update).observe(row, { attributes: true, subtree: true, attributeFilter: ['hidden'] });
+    update();
+  });
+
+  /* ---------- floating shop bar (phones) ---------- */
+  const mobileBar = $('[data-mobile-bar]');
+  if (mobileBar) {
+    const hero = $('[data-hero]');
+    const footer = $('.site-footer');
+    const toggleBar = () => {
+      const past = window.scrollY > (hero ? hero.offsetTop + hero.offsetHeight * 0.7 : 400);
+      const atFooter = footer && footer.getBoundingClientRect().top < window.innerHeight - 40;
+      mobileBar.classList.toggle('is-visible', past && !atFooter);
+    };
+    window.addEventListener('scroll', toggleBar, { passive: true });
+    toggleBar();
+  }
+
+  /* ---------- product gallery counter (swipe gallery on phones) ---------- */
+  $$('[data-gallery]').forEach((gallery) => {
+    const out = gallery.parentElement.querySelector('[data-gallery-index]');
+    if (!out) return;
+    gallery.addEventListener('scroll', () => {
+      out.textContent = Math.round(gallery.scrollLeft / gallery.clientWidth) + 1;
+    }, { passive: true });
   });
 
   /* ---------- cart drawer ---------- */
@@ -139,6 +191,22 @@
     const button = $('[data-add-button]', form);
     const priceEl = $('[data-product-price]', section);
     const errorEl = $('[data-form-error]', form);
+    const sticky = $('[data-sticky-atc]', section);
+    const stickyBtn = sticky && $('[data-sticky-add]', sticky);
+    const stickyPrice = sticky && $('[data-sticky-price]', sticky);
+
+    // Sticky add-to-bag bar on phones: shows once the real button scrolls away.
+    if (sticky && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        const show = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        sticky.classList.toggle('is-visible', show);
+        sticky.setAttribute('aria-hidden', String(!show));
+        stickyBtn.tabIndex = show ? 0 : -1;
+      }).observe(button);
+      stickyBtn.addEventListener('click', () => {
+        if (form.requestSubmit) form.requestSubmit(); else button.click();
+      });
+    }
 
     function selected() {
       const values = [];
@@ -160,6 +228,11 @@
       button.textContent = variant.available ? 'Add to bag' : 'Sold out';
       if (priceEl) {
         priceEl.innerHTML = money(variant.price) + (variant.compare_at_price > variant.price ? `<s>${money(variant.compare_at_price)}</s>` : '');
+      }
+      if (stickyBtn) {
+        stickyBtn.disabled = !variant.available;
+        stickyBtn.textContent = button.textContent;
+        stickyPrice.textContent = money(variant.price);
       }
       const url = new URL(window.location.href);
       url.searchParams.set('variant', variant.id);

@@ -81,6 +81,16 @@ their OS; if `motion.js` fails to load, everything is shown after 3 seconds. Loc
 open http://localhost:9292/?motion=1 to preview animations on a Mac with reduced
 motion on (`?motion=0` turns that off).
 
+## Phones
+
+`assets/mobile.css` reshapes the site below 860px:
+
+- Poster hero: full-bleed photo first with the wordmark set over it
+- Product rows become swipeable with a progress bar (toggle per section: "Swipe row on phones")
+- Full-screen menu with large links
+- Floating Shop all / 1/1 crate / Bag bar after the hero (Header → Mobile)
+- Product pages: swipe gallery with a photo counter and a sticky Add to bag bar
+
 ## 1 of 1 pieces
 
 A product is treated as 1 of 1 when it has the tag `1of1` (changeable under

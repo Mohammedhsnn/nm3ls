@@ -31,16 +31,34 @@
       </a>
     </div>
   </div>
-  <nav class="mobile-menu" id="MobileMenu" aria-label="Mobile" hidden>
+</header>
+
+{%- comment -%} Outside <header>: the header slides away on scroll, and a transformed parent would break position: fixed. {%- endcomment -%}
+<nav class="mobile-menu" id="MobileMenu" aria-label="Mobile" data-mobile-menu>
+  <div class="mobile-menu__links">
     {%- for link in menu.links -%}
-      <a href="{{ link.url }}">{{ link.title | escape }}</a>
+      <a href="{{ link.url }}" style="--i: {{ forloop.index0 }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}<span aria-hidden="true">→</span></a>
     {%- endfor -%}
+  </div>
+  <div class="mobile-menu__foot">
     <a href="{{ routes.search_url }}">Search</a>
     {%- if shop.customer_accounts_enabled -%}
       <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">Account</a>
     {%- endif -%}
-  </nav>
-</header>
+    {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a>{%- endif -%}
+    {%- if settings.social_tiktok != blank -%}<a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a>{%- endif -%}
+  </div>
+</nav>
+
+{%- if section.settings.mobile_bar -%}
+  <div class="mobile-bar" data-mobile-bar>
+    <a href="{{ routes.all_products_collection_url }}">Shop all</a>
+    {%- if section.settings.mobile_bar_label != blank -%}
+      <a href="{{ section.settings.mobile_bar_link | default: routes.collections_url }}">{{ section.settings.mobile_bar_label | escape }}</a>
+    {%- endif -%}
+    <a href="{{ routes.cart_url }}" class="mobile-bar__bag" data-cart-open>Bag <span class="cart-count" data-cart-count>{{ cart.item_count }}</span></a>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -50,7 +68,11 @@
     { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to use the text wordmark" },
     { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "NML" },
     { "type": "text", "id": "script", "label": "Script accent", "default": "club" },
-    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "header", "content": "Mobile" },
+    { "type": "checkbox", "id": "mobile_bar", "label": "Floating shop bar", "info": "Appears at the bottom on phones after scrolling past the hero", "default": true },
+    { "type": "text", "id": "mobile_bar_label", "label": "Middle link label", "default": "1/1 crate" },
+    { "type": "url", "id": "mobile_bar_link", "label": "Middle link" }
   ]
 }
 {% endschema %}
