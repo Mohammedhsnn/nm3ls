@@ -38,6 +38,31 @@
   });
   window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
+  /* ---------- fit big wordmarks to their box ----------
+     CSS sizes them for the default words; if a longer word is set in the
+     theme editor, shrink it so it stays on one line inside its column. */
+  const fitTargets = $$('[data-fit-text]');
+  function fitText() {
+    fitTargets.forEach((el) => {
+      el.style.fontSize = '';
+      const box = el.parentElement.closest('.hero__inner > *, .page-width') || el.parentElement;
+      const cs = getComputedStyle(box);
+      const avail = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const chars = el.querySelectorAll('.char');
+      const width = chars.length
+        ? chars[chars.length - 1].getBoundingClientRect().right - chars[0].getBoundingClientRect().left
+        : el.scrollWidth;
+      if (width > avail && width > 0) {
+        el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * (avail / width) * 0.98).toFixed(1) + 'px';
+      }
+    });
+  }
+  if (fitTargets.length) {
+    fitText();
+    window.addEventListener('resize', fitText, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitText);
+  }
+
   /* ---------- swipe rows: progress thumb under sideways scrollers ---------- */
   $$('[data-swipe]').forEach((row) => {
     const bar = row.parentElement.querySelector('[data-swipe-thumb]');

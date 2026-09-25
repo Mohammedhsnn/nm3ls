@@ -25,7 +25,7 @@
       {%- endfor -%}
     </div>
     {%- if section.settings.giant != blank -%}
-      <div class="footer__giant" data-reveal="chars" aria-hidden="true">
+      <div class="footer__giant" data-reveal="chars" data-fit-text aria-hidden="true">
         {%- assign chars = section.settings.giant | split: '' -%}
         {%- for c in chars -%}<span class="char" style="--c: {{ forloop.index0 }}">{{ c | escape }}</span>{%- endfor -%}
       </div>

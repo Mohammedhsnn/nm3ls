@@ -8,7 +8,7 @@
         <p class="eyebrow hero__eyebrow hero-in" style="--d: 0"><span class="dot"></span>{{ s.eyebrow | escape }}</p>
       {%- endif -%}
       <div class="wordmark" aria-hidden="true">
-        <span class="wordmark__big">
+        <span class="wordmark__big" data-fit-text>
           {%- assign chars = s.wordmark | split: '' -%}
           {%- for c in chars -%}<span class="char" style="--c: {{ forloop.index0 }}">{{ c | escape }}</span>{%- endfor -%}
         </span>
