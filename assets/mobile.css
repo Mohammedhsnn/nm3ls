@@ -167,5 +167,8 @@
 }
 
 @media (max-width: 860px) and (prefers-reduced-motion: reduce) {
-  .mobile-menu, .mobile-menu.is-open { transition: none; }
+  .mobile-menu { clip-path: none; opacity: 0; transition: opacity .3s ease, visibility 0s linear .3s; }
+  .mobile-menu.is-open { clip-path: none; opacity: 1; transition: opacity .3s ease; }
+  .mobile-menu__links a { transform: none; }
+  .mobile-bar, .sticky-atc { transition: none; }
 }

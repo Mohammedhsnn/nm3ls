@@ -76,8 +76,11 @@ Theme settings → **Motion** switches each part on or off:
 - **Custom cursor** (desktop): says "View" over products, "Sold" over sold pieces.
 - **Film grain** overlay.
 
-None of it runs in the theme editor or for visitors with reduced motion turned on in
-their OS; if `motion.js` fails to load, everything is shown after 3 seconds. Locally,
+It all works at every screen size. Visitors with reduced motion turned on in their OS
+get a gentle version: the same intro and reveals as fades, without sliding, parallax
+or scroll-speed effects. Nothing animates in the theme editor, and if `motion.js`
+fails to load, everything is shown after 3 seconds. The intro plays once per visit,
+or on every homepage load (Theme settings → Motion → Play intro). Locally,
 open http://localhost:9292/?motion=1 to preview animations on a Mac with reduced
 motion on (`?motion=0` turns that off).
 

@@ -24,7 +24,8 @@
       "intro_tagline": "Weekly 1/1 drops",
       "enable_animations": true,
       "custom_cursor": true,
-      "show_grain": true
+      "show_grain": true,
+      "intro_frequency": "session"
     }
   }
 }

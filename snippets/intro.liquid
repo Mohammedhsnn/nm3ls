@@ -1,10 +1,17 @@
 {%- comment -%}
-  First-visit intro. Plays once per browser session, never in the theme editor
-  and never with reduced motion. Pure CSS timing, so it always clears itself
-  even if theme scripts fail; the inline script only skips repeats, runs the
-  counter and lets a click dismiss it early.
+  Intro before the site shows. Plays once per visit, or on every homepage load
+  (Theme settings > Motion). Never in the theme editor; with reduced motion on
+  it fades instead of moving (motion.css). Pure CSS timing, so it always clears
+  itself even if theme scripts fail; the inline script only skips repeats,
+  runs the counter and lets a click dismiss it early.
 {%- endcomment -%}
-{%- if settings.show_intro -%}{%- unless request.design_mode -%}
+{%- liquid
+  assign play_intro = settings.show_intro
+  if settings.intro_frequency == 'home' and request.page_type != 'index'
+    assign play_intro = false
+  endif
+-%}
+{%- if play_intro -%}{%- unless request.design_mode -%}
   <div class="intro" data-intro aria-hidden="true">
     <div class="intro__grain"></div>
     <div class="intro__record"></div>
@@ -25,7 +32,7 @@
       var root = document.documentElement;
       var skip = false;
       try {
-        skip = sessionStorage.getItem('nml-intro') === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        skip = {% if settings.intro_frequency == 'home' %}false{% else %}sessionStorage.getItem('nml-intro') === '1'{% endif %};
         sessionStorage.setItem('nml-intro', '1');
       } catch (e) {}
       if (skip) { root.classList.add('intro-skip'); return; }

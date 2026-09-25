@@ -1,6 +1,7 @@
 /* NML Club motion layer. No dependencies; one rAF loop drives everything
    scroll-linked. Loaded only when Theme settings > Motion > Scroll animations
-   is on. Respects prefers-reduced-motion and the theme editor. */
+   is on. With reduced motion on it runs in "gentle" mode (fades, no movement);
+   in the theme editor it shows everything without animating. */
 (() => {
   const root = document.documentElement;
   window.__nmlMotion = true;
@@ -8,7 +9,8 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const design = root.classList.contains('design-mode');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const still = reduce || design;
+  const still = design;   // theme editor: show everything, animate nothing
+  const gentle = reduce;  // reduced motion: keep fades, drop movement
 
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
   const lerp = (a, b, t) => a + (b - a) * t;
@@ -111,7 +113,7 @@
     }
 
     for (const p of parallax) {
-      if (!p.visible) continue;
+      if (gentle || !p.visible) continue;
       const r = p.el.getBoundingClientRect();
       const offset = (r.top + r.height / 2 - vh / 2) * -p.speed;
       if (p.el.classList.contains('hero__img')) {
@@ -122,18 +124,21 @@
       }
     }
 
-    const boost = clamp(Math.abs(velocity) * 0.45, 0, 14);
+    const boost = gentle ? 0 : clamp(Math.abs(velocity) * 0.45, 0, 14);
+    const skew = gentle ? 0 : clamp(-velocity * 0.25, -8, 8);
     for (const m of marquees) {
       if (!m.half) continue;
-      const dir = velocity < -0.5 ? -m.dir : m.dir; // scrolling up reverses the tapes
-      m.x += (m.speed + boost) * dir;
+      const dir = !gentle && velocity < -0.5 ? -m.dir : m.dir; // scrolling up reverses the tapes
+      m.x += (gentle ? m.speed * 0.5 : m.speed + boost) * dir;
       if (m.x <= -m.half) m.x += m.half;
       if (m.x > 0) m.x -= m.half;
-      m.track.style.transform = `translate3d(${m.x.toFixed(1)}px, 0, 0) skewX(${clamp(-velocity * 0.25, -8, 8).toFixed(2)}deg)`;
+      m.track.style.transform = `translate3d(${m.x.toFixed(1)}px, 0, 0) skewX(${skew.toFixed(2)}deg)`;
     }
 
-    for (const s of spinners) s.style.transform = `rotate(${(-14 + y * 0.12).toFixed(1)}deg)`;
-    for (const a of vinyls) a.playbackRate = 1 + clamp(Math.abs(velocity) / 6, 0, 7);
+    if (!gentle) {
+      for (const s of spinners) s.style.transform = `rotate(${(-14 + y * 0.12).toFixed(1)}deg)`;
+      for (const a of vinyls) a.playbackRate = 1 + clamp(Math.abs(velocity) / 6, 0, 7);
+    }
 
     requestAnimationFrame(frame);
   }
@@ -169,7 +174,7 @@
 
   /* ---------- magnetic buttons ---------- */
   function initMagnetic() {
-    if (!finePointer || still) return;
+    if (!finePointer || still || gentle) return;
     document.addEventListener('mousemove', (e) => {
       const btn = e.target.closest && e.target.closest('.btn');
       document.querySelectorAll('.btn.is-magnet').forEach((b) => {

@@ -136,8 +136,24 @@
         "type": "checkbox",
         "id": "show_intro",
         "label": "Show intro on first visit",
-        "info": "Plays once per visit. Never shown in the theme editor or to visitors who turned on reduced motion.",
+        "info": "Never shown in the theme editor. With reduced motion on, it fades instead of moving.",
         "default": true
+      },
+      {
+        "type": "select",
+        "id": "intro_frequency",
+        "label": "Play intro",
+        "options": [
+          {
+            "value": "session",
+            "label": "Once per visit"
+          },
+          {
+            "value": "home",
+            "label": "Every time the homepage loads"
+          }
+        ],
+        "default": "session"
       },
       {
         "type": "text",
@@ -165,7 +181,7 @@
         "type": "checkbox",
         "id": "enable_animations",
         "label": "Scroll animations",
-        "info": "Reveals, parallax, tape speed-up and hide-on-scroll header",
+        "info": "Reveals, parallax, tape speed-up and hide-on-scroll header. With reduced motion on, visitors get gentle fades instead.",
         "default": true
       },
       {

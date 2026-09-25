@@ -341,6 +341,7 @@ table.data th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
   .product__gallery { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  /* Stop looping motion; entrance fades are handled gently in motion.css. */
   html { scroll-behavior: auto; }
+  .vinyl, .announcement__track, .hero__eyebrow .dot, .cart-count.bump { animation: none; }
 }
